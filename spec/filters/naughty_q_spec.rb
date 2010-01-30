@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/spec_helper.rb'
+require File.dirname(__FILE__) + '/../spec_helper.rb'
 
 describe "NaughtyQ" do
   it "should return a score for 1 misplaced q" do
@@ -8,7 +8,7 @@ describe "NaughtyQ" do
 
   describe 'attributes' do
     before :each do
-      @filter = Despamilator.new('qtq').matched_by.first
+      @filter = Despamilator.new('qtqt').matched_by.first
     end
 
     it "should have a filename" do
@@ -34,6 +34,6 @@ describe "NaughtyQ" do
 
   it "should score more for 3 misplaced q's" do
     dspam = Despamilator.new('qtuqsq')
-    dspam.score.to_s.should == 0.6.to_s
+    dspam.score.to_s.should == 0.4.to_s
   end
 end

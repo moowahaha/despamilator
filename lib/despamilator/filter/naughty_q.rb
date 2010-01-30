@@ -7,11 +7,11 @@ def description
 end
 
 def parse
-  matches = self.text.downcase.scan(/q.?/)
+  matches = self.text.downcase.scan(/q./)
 
   return unless matches
 
   matches.each do |match|
-    self.append_score = 0.2 unless match == 'qu' and match == 'qa'
+    self.append_score = 0.2 if match != 'qu' and match != 'qa' and match !~ /q\s/
   end
 end
