@@ -3,6 +3,7 @@ class Despamilator
     attr_accessor :matches, :score
 
     def initialize text
+      @@loaded ||= {}
       @filters ||= []
       @matches ||= []
       @score ||= 0
@@ -15,14 +16,18 @@ class Despamilator
     def load_filters text
       Dir.glob(File.dirname(__FILE__) + "/filter/*.rb").each do |filter_file|
         filter_name = classify_filename filter_file
+        filter = @@loaded[filter_name]
+        
+        unless filter
 
-        filter_code = File.open(filter_file, File::RDWR).read
-        filter = Class.new
-        filter.class_eval(
-                "require 'despamilator/filter_base'\nclass #{filter_name} < Despamilator::FilterBase\n#{filter_code}\nend"
-        )
+          filter_code = File.open(filter_file, File::RDWR).read
+          filter = Class.new
+          filter.class_eval(
+                  "require 'despamilator/filter_base'\nclass #{filter_name} < Despamilator::FilterBase\n#{filter_code}\nend"
+          )
+        end
 
-        @filters.push(filter.const_get(filter_name).new(text, File.basename(filter_file), filter_name))
+        @filters.push(filter.const_get(filter_name).new(text, File.basename(filter_file)))
       end
     end
 

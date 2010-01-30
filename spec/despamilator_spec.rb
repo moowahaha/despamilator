@@ -4,6 +4,7 @@ describe Despamilator do
   before :each do
     @dspam = Despamilator.new('this text is absolutely fine')
   end
+  
   it "should return a zero score for fine text" do
     @dspam.score.should == 0
   end
