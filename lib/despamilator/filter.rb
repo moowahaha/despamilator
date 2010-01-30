@@ -17,7 +17,7 @@ class Despamilator
       Dir.glob(File.dirname(__FILE__) + "/filter/*.rb").each do |filter_file|
         filter_name = classify_filename filter_file
         filter = @@loaded[filter_name]
-        
+
         unless filter
 
           filter_code = File.open(filter_file, File::RDWR).read
@@ -27,7 +27,7 @@ class Despamilator
           )
         end
 
-        @filters.push(filter.const_get(filter_name).new(text, File.basename(filter_file)))
+        @filters.push(filter.const_get(filter_name).new(text.to_s.dup, File.basename(filter_file)))
       end
     end
 

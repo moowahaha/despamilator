@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper.rb'
 
-context "HTMLTags" do
-  describe "detecting various script tags" do
+context "HtmlTags" do
+  describe "detecting various HTML tags" do
     [
             '!--',
             '!DOCTYPE',
@@ -39,7 +39,7 @@ context "HTMLTags" do
             'form',
             'frame',
             'frameset',
-            'h1>toh6',
+            'h1',
             'head',
             'hr',
             'html',
@@ -104,7 +104,7 @@ context "HTMLTags" do
                 "#{script_tag}\n/>",
                 "<\r#{script_tag}\r/>"
         ].each do |script_tag|
-          it "should detect '#{script_tag}' of a script tag" do
+          it "should detect '#{script_tag}'" do
             dspam = Despamilator.new(script_tag)
             dspam.score.should == 0.3
           end
