@@ -7,7 +7,7 @@ class Despamilator
       @matches ||= []
       @score ||= 0
       load_filters text
-      @matches = run_filters
+      run_filters
     end
 
     private
@@ -29,6 +29,7 @@ class Despamilator
     def run_filters
       @filters.each do |filter|
         filter.parse
+
         if filter.matched?
           @matches.push(filter)
           @score += filter.score

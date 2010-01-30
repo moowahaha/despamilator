@@ -1,3 +1,11 @@
+def name
+  'Naughty Q'
+end
+
+def description
+  'Detects possible misuse of the letter Q (English language)'
+end
+
 def parse
   matches = self.text.downcase.scan(/q.?/)
 

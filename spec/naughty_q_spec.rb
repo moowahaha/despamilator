@@ -6,11 +6,30 @@ describe "NaughtyQ" do
     dspam.score.should == 0.2
   end
 
-  it "should return the matching filter" do
-    dspam = Despamilator.new('qtu')
-    dspam.matched_by.first.name.should == 'NaughtyQ'
-    dspam.matched_by.first.matches.should == 1
-    dspam.matched_by.first.score.should == 0.2
+  describe 'attributes' do
+    before :each do
+      @filter = Despamilator.new('qtq').matched_by.first
+    end
+
+    it "should have a filename" do
+      @filter.filename.should == 'naughty_q.rb'
+    end
+
+    it "should have a name" do
+      @filter.name.should == 'Naughty Q'
+    end
+
+    it "should have a description" do
+      @filter.description.should == 'Detects possible misuse of the letter Q (English language)'
+    end
+
+    it "should have a number of matches" do
+      @filter.matches.should == 2
+    end
+
+    it "should have a score" do
+      @filter.score.should == 0.4
+    end
   end
 
   it "should score more for 3 misplaced q's" do
