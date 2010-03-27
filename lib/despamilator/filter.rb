@@ -19,7 +19,6 @@ class Despamilator
         filter = @@loaded[filter_name]
 
         unless filter
-
           filter_code = File.open(filter_file, File::RDWR).read
           filter = Class.new
           filter.class_eval(

@@ -14,7 +14,7 @@ class Despamilator
       raise "No description defined in #{filename}"
     end
 
-    def parse
+    def parse blah
       raise "No parser defined in #{filename}"
     end
 

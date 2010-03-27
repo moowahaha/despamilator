@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper.rb'
 
 context "HtmlTags" do
-  describe "detecting various HTML tags" do
+  describe "filtering" do
     [
             '!--',
             '!DOCTYPE',
@@ -40,6 +40,11 @@ context "HtmlTags" do
             'frame',
             'frameset',
             'h1',
+            'h2',
+            'h3',
+            'h4',
+            'h5',
+            'h6',
             'head',
             'hr',
             'html',
@@ -127,6 +132,12 @@ context "HtmlTags" do
 
       it "should have a filename" do
         @dspam.filename.should == 'html_tags.rb'
+      end
+    end
+
+    describe 'bug fixes' do
+      it "should detect an h1" do
+        Despamilator.new('<h1>TITLE!!</h1>').score.should == 0.3
       end
     end
   end
