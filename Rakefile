@@ -25,6 +25,7 @@ Dir['tasks/**/*.rake'].each { |t| load t }
 # remove_task :default
 task :test => [:spec]
 task :default => [:test]
+task :install => [:install_gem]
 
 task :cultivate do
   system "touch Manifest.txt; rake check_manifest | grep -v \"(in \" | patch"

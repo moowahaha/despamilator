@@ -4,14 +4,9 @@
 
 == DESCRIPTION:
 
-Despamilator is a plugin based spam detector designed for use on your web forms born out of two annoyances:
-
-* spam being submitted in my web forms
-* captchas being intrusive
-
-So instead of asking your users to tell you that they're not computers, Despamilator will apply
-some commonly used heuristics from the world of anti-spam to help you decide whether your users
-are a bit suspect.
+Despamilator is a plugin based spam detector designed for use on your web forms borne out of two annoyances:
+Spam being submitted in my web forms AND CAPTCHAS being intrusive. Despamilator will apply
+some commonly used heuristics from the world of anti-spam to help you decide whether your users are human or machine.
 
 == FEATURES/PROBLEMS:
 
