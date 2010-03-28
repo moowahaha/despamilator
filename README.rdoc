@@ -6,9 +6,8 @@
 
 Despamilator is a plugin based spam detector designed for use on your web forms born out of two annoyances:
 
- * spam being submitted in my web forms
-
- * captchas being intrusive
+* spam being submitted in my web forms
+* captchas being intrusive
 
 So instead of asking your users to tell you that they're not computers, Despamilator will apply
 some commonly used heuristics from the world of anti-spam to help you decide whether your users
@@ -50,7 +49,6 @@ are a bit suspect.
 == REQUIREMENTS:
 
 * hoe
-
 * rspec
 
 
