@@ -1,30 +1,64 @@
-= despamilator
+= Despamilator
 
-* http://github.com/#{github_username}/#{project_name}
+* http://github.com/moowahaha/despamliator
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Despamilator is a plugin based spam detector designed for use on your web forms born out of two annoyances:
+
+ * spam being submitted in my web forms
+
+ * captchas being intrusive
+
+So instead of asking your users to tell you that they're not computers, Despamilator will apply
+some commonly used heuristics from the world of anti-spam to help you decide whether your users
+are a bit suspect.
 
 == FEATURES/PROBLEMS:
 
-* FIX (list of features or problems)
+* rspec will be run twice. How annoying?!
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+  # using Despamilator
+  dspam = Despamilator.new('some text with an <h2> tag qthhg')
+
+  dspam.score #=> the total score for this string (1 is considered high)
+  dspam.matched_by #=> array of matching filters
+  first_match = dspam.matched_by.first #=> first matching filter
+  first_match.name #=> some string with the name of the filter
+  first_match.description #=> some string to describe
+  first_match.score #=> the individual score assigned by this filter
+
+  # adding a new filter! example: detecting the letter "a"
+  # put the following code in lib/despamilator/filter/detect_letter_a.rb
+  def name
+    'Detecting the letter A'
+  end
+
+  def description
+    'Detects the letter "a" in a string for no reason other than a demo'
+  end
+
+  def parse
+    if self.text.downcase.scan(/a/)
+      # add 0.1 to the score of the text
+      self.append_score = 0.1
+    end
+  end
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* hoe
+
+* rspec
+
 
 == INSTALL:
 
 * FIX (sudo gem install, anything else)
 
 == LICENSE:
-
-(The MIT License)
 
 Copyright (c) 2010 Stephen Hardisty
 
