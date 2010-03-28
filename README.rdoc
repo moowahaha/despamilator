@@ -46,6 +46,38 @@ are a bit suspect.
     end
   end
 
+== FILTERING:
+
+As stated, this is a heuristic scanner so its up to the user to decide the thresholds of the scanner. I usually
+say "it's spam" if the score reaches 1.
+
+The score will be added to incrementally by each matching filter. So if there is some HTML in there, it will be added
+to the score. If there is also a script tag of some sort, that will add more.
+
+Each filter decides how much of a score it assigns. For example, detecting a number next to a letter
+(the numbers_an_words filter) is only a mild hint compared with a script tag (detected by the script_tag filter).
+
+=== NEW FILTERS:
+
+I absolutely welcome new filters and experiments. New filters should be put in the 'lib/despamilator/filter/' directory.
+The core filtering code will detect and use what is in there so you only need to drop the code in.
+Filters should be simple, no classes etc wrapped around them and should try to perform one simple task.
+They should always supply the following methods:
+
+ * name #=> the name of your filter.
+ * description #=> what your filter will look for.
+ * parse #=> the method that will be called when parsing.
+
+Along side the above, the following methods are made available to each filter:
+
+ * text #=> a copy of the text your parser will parse
+ * append_score= #=> method to append a score to the text if there are matches in your parser.
+ * matched? #=> whether or not any filter has so far detected something suspect
+ * score #=> the current score assigned to the text
+
+spec tests are an absolute must!
+
+
 == REQUIREMENTS:
 
 * hoe
