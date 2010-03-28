@@ -86,7 +86,7 @@ spec tests are an absolute must!
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+ $ sudo gem install despamilator
 
 == LICENSE:
 

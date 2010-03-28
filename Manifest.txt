@@ -3,6 +3,7 @@ Manifest.txt
 PostInstall.txt
 README.rdoc
 Rakefile
+despamilator.gemspec
 lib/despamilator.rb
 lib/despamilator/filter.rb
 lib/despamilator/filter/html_tags.rb
