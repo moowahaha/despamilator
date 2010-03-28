@@ -2,29 +2,24 @@
 
 Gem::Specification.new do |s|
   s.name = %q{despamilator}
-  s.version = "0.1"
+  s.version = "0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Stephen Hardisty"]
   s.date = %q{2010-03-28}
-  s.description = %q{Despamilator is a plugin based spam detector designed for use on your web forms born out of two annoyances:
-
-* spam being submitted in my web forms
-* captchas being intrusive
-
-So instead of asking your users to tell you that they're not computers, Despamilator will apply
-some commonly used heuristics from the world of anti-spam to help you decide whether your users
-are a bit suspect.}
+  s.description = %q{Despamilator is a plugin based spam detector designed for use on your web forms borne out of two annoyances:
+Spam being submitted in my web forms AND CAPTCHAS being intrusive. Despamilator will apply
+some commonly used heuristics from the world of anti-spam to help you decide whether your users are human or machine.}
   s.email = ["moowahaha@hotmail.com"]
-  s.extra_rdoc_files = ["History.txt", "Manifest.txt", "PostInstall.txt"]
-  s.files = ["History.txt", "Manifest.txt", "PostInstall.txt", "README.rdoc", "Rakefile", "despamilator.gemspec", "lib/despamilator.rb", "lib/despamilator/filter.rb", "lib/despamilator/filter/html_tags.rb", "lib/despamilator/filter/naughty_q.rb", "lib/despamilator/filter/numbers_and_words.rb", "lib/despamilator/filter/script_tag.rb", "lib/despamilator/filter_base.rb", "spec/despamilator_spec.rb", "spec/filters/html_tags_spec.rb", "spec/filters/naughty_q_spec.rb", "spec/filters/numbers_and_words_spec.rb", "spec/filters/script_tag_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "tasks/rspec.rake"]
+  s.extra_rdoc_files = ["History.txt", "Manifest.txt", "PostInstall.txt", "pkg/despamilator-0.1/History.txt", "pkg/despamilator-0.1/Manifest.txt", "pkg/despamilator-0.1/PostInstall.txt"]
+  s.files = ["History.txt", "Manifest.txt", "PostInstall.txt", "README.rdoc", "Rakefile", "despamilator.gemspec", "lib/despamilator.rb", "lib/despamilator/filter.rb", "lib/despamilator/filter/html_tags.rb", "lib/despamilator/filter/naughty_q.rb", "lib/despamilator/filter/numbers_and_words.rb", "lib/despamilator/filter/script_tag.rb", "lib/despamilator/filter_base.rb", "pkg/despamilator-0.1.gem", "pkg/despamilator-0.1.tgz", "pkg/despamilator-0.1/History.txt", "pkg/despamilator-0.1/Manifest.txt", "pkg/despamilator-0.1/PostInstall.txt", "pkg/despamilator-0.1/README.rdoc", "pkg/despamilator-0.1/Rakefile", "pkg/despamilator-0.1/despamilator.gemspec", "pkg/despamilator-0.1/lib/despamilator.rb", "pkg/despamilator-0.1/lib/despamilator/filter.rb", "pkg/despamilator-0.1/lib/despamilator/filter/html_tags.rb", "pkg/despamilator-0.1/lib/despamilator/filter/naughty_q.rb", "pkg/despamilator-0.1/lib/despamilator/filter/numbers_and_words.rb", "pkg/despamilator-0.1/lib/despamilator/filter/script_tag.rb", "pkg/despamilator-0.1/lib/despamilator/filter_base.rb", "pkg/despamilator-0.1/spec/despamilator_spec.rb", "pkg/despamilator-0.1/spec/filters/html_tags_spec.rb", "pkg/despamilator-0.1/spec/filters/naughty_q_spec.rb", "pkg/despamilator-0.1/spec/filters/numbers_and_words_spec.rb", "pkg/despamilator-0.1/spec/filters/script_tag_spec.rb", "pkg/despamilator-0.1/spec/spec.opts", "pkg/despamilator-0.1/spec/spec_helper.rb", "pkg/despamilator-0.1/tasks/rspec.rake", "spec/despamilator_spec.rb", "spec/filters/html_tags_spec.rb", "spec/filters/naughty_q_spec.rb", "spec/filters/numbers_and_words_spec.rb", "spec/filters/script_tag_spec.rb", "spec/spec.opts", "spec/spec_helper.rb", "tasks/rspec.rake"]
   s.homepage = %q{http://github.com/moowahaha/despamliator}
   s.post_install_message = %q{PostInstall.txt}
   s.rdoc_options = ["--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{despamilator}
-  s.rubygems_version = %q{1.3.5}
-  s.summary = %q{Despamilator is a plugin based spam detector designed for use on your web forms born out of two annoyances:  * spam being submitted in my web forms * captchas being intrusive  So instead of asking your users to tell you that they're not computers, Despamilator will apply some commonly used heuristics from the world of anti-spam to help you decide whether your users are a bit suspect.}
+  s.rubygems_version = %q{1.3.6}
+  s.summary = %q{Despamilator is a plugin based spam detector designed for use on your web forms borne out of two annoyances: Spam being submitted in my web forms AND CAPTCHAS being intrusive}
 
   if s.respond_to? :specification_version then
     current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
