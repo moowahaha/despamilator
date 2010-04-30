@@ -99,18 +99,17 @@ context "HtmlTags" do
     ].each do |script_tag|
       [script_tag.upcase, script_tag.downcase].each do |script_tag|
         [
-                "<#{script_tag}",
-                "#{script_tag}/>",
+                "<#{script_tag}>",
                 "<#{script_tag}/>",
-                "< #{script_tag} ",
-                "#{script_tag} />",
+                "< #{script_tag} >",
+                "<#{script_tag} />",
                 "<\n#{script_tag}\n/>",
-                "<\n#{script_tag} ",
-                "#{script_tag}\n/>",
+                "<\n#{script_tag} >",
+                "<#{script_tag}\n/>",
                 "<\r#{script_tag}\r/>"
-        ].each do |script_tag|
-          it "should detect '#{script_tag}'" do
-            dspam = Despamilator.new(script_tag)
+        ].each do |tag|
+          it "should detect '#{tag}'" do
+            dspam = Despamilator.new(tag)
             dspam.score.should == 0.3
           end
         end
@@ -138,6 +137,10 @@ context "HtmlTags" do
     describe 'bug fixes' do
       it "should detect an h1" do
         Despamilator.new('<h1>TITLE!!</h1>').score.should == 0.3
+      end
+
+      it "should not detect tags twice" do
+        Despamilator.new('<i>italic</i>').score.should == 0.3
       end
     end
   end

@@ -1,6 +1,6 @@
 def parse
   html = self.text.downcase
-  
+
   html_tags.each do |tag|
     if html.match(/<\s*#{tag}\W/) || html.match(/<\n*#{tag}\W/) || html.match(/\W#{tag}\s*\//) || html.match(/\W#{tag}\n*\//)
       self.append_score = 0.3
