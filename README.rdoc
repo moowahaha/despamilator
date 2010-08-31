@@ -10,7 +10,7 @@ some commonly used heuristics from the world of anti-spam to help you decide whe
 
 == FEATURES/PROBLEMS:
 
-* rspec will be run twice. How annoying?!
+* Added easy rails validation added!! :D
 
 == SYNOPSIS:
 
@@ -43,6 +43,15 @@ some commonly used heuristics from the world of anti-spam to help you decide whe
       self.append_score = 0.1
     end
   end
+
+== RAILS SYNOPSIS:
+
+    # in your environment.rb
+    require 'despamilator/validation'
+
+    # in your model
+    validates_despamilation_of :some_field, :threshold => 1
+
 
 == FILTERING:
 

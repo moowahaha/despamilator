@@ -19,3 +19,7 @@
  * urls.rb
 
 * Added spam and non-spam samples.
+
+=== 0.5 2010-08-31
+
+* Added Rails validation sugar (despamilator/validation).
