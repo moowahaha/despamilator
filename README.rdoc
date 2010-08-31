@@ -50,8 +50,11 @@ some commonly used heuristics from the world of anti-spam to help you decide whe
     require 'despamilator/validation'
 
     # in your model
-    validates_despamilation_of :some_field, :threshold => 1
+    include DespamilatorValidation
 
+    def validate
+      validates_despamilation_of :text, :threshold => 1
+    end
 
 == FILTERING:
 

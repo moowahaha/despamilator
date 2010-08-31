@@ -2,19 +2,26 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 require File.dirname(__FILE__) + '/../lib/despamilator/validation.rb'
 
 class TestClass
-  include ActiveRecord::Validations::ClassMethods
+  include DespamilatorValidation
+
+  attr_accessor :text
 end
 
 describe 'despamilator validation' do
 
-  # worst test i have ever written?
   it "should validate my field" do
-    fake_record = mock('fake record')
-
     tc = TestClass.new
-    tc.should_receive(:validates_each).with([:something], {:on=>:save, :message=>"has exceeded the spam threshold of 1"}).and_yield(fake_record, :something, 'bob')
+    tc.text = 'asdasd'
 
-    tc.validates_despamilation_of :something, :threshold => 1
+    fake_despamilator = mock('despamilator')
+    Despamilator.should_receive(:new).and_return(fake_despamilator)
+    fake_despamilator.should_receive(:score).and_return(2)
+
+    fake_errors = mock('errors')
+    tc.should_receive(:errors).and_return(fake_errors)
+    fake_errors.should_receive(:add).with(:text, "has exceeded the spam threshold of 1")
+
+    tc.validates_despamilation_of(:text, :threshold => 1)
   end
 
 end
