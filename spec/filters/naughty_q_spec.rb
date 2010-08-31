@@ -24,16 +24,16 @@ describe "NaughtyQ" do
     end
 
     it "should have a number of matches" do
-      @filter.matches.should == 2
+      @filter.matches.should == 3
     end
 
     it "should have a score" do
-      @filter.score.should == 0.4
+      @filter.score.to_s.should == 0.6.to_s
     end
   end
 
   it "should score more for 3 misplaced q's" do
     dspam = Despamilator.new('qtuqsq')
-    dspam.score.to_s.should == 0.4.to_s
+    dspam.score.to_s.should == 0.6.to_s
   end
 end

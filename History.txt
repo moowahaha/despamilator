@@ -8,3 +8,14 @@
 * Added HTML tag detection
 * Added IP address detection
 
+=== 0.4 2010-08-31
+
+* Added filters:
+ * funky_consonant.rb
+ * long_words.rb
+ * naughty_q.rb
+ * naughty_words.rb
+ * square_brackets.rb
+ * urls.rb
+
+* Added spam and non-spam samples.
