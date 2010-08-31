@@ -19,6 +19,7 @@ lib/despamilator/filter/shouting.rb
 lib/despamilator/filter/square_brackets.rb
 lib/despamilator/filter/urls.rb
 lib/despamilator/filter_base.rb
+lib/despamilator/validation.rb
 scripts/despamilator_score.rb
 spec/clean_corpus/101.txt.gz
 spec/clean_corpus/103.txt.gz
@@ -127,6 +128,7 @@ spec/clean_corpus/97.txt.gz
 spec/clean_corpus/99.txt.gz
 spec/clean_corpus_spec.rb
 spec/despamilator_spec.rb
+spec/despamilator_validation_spec.rb
 spec/filters/funky_consonant_spec.rb
 spec/filters/html_tags_spec.rb
 spec/filters/ip_address_url_spec.rb

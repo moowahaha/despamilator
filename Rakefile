@@ -29,5 +29,5 @@ task :install => [:install_gem]
 
 task :cultivate do
   system "touch Manifest.txt; rake check_manifest | grep -v \"(in \" | patch"
-  system "rake debug_gem | grep -v \"(in \" > `basename \\`pwd\\``.gemspec"
+  system "rake debug_gem | grep -v \"(in \" > `basename \\`pwd\\``.gemspec |grep -v _spec.rb |grep -v _corpus"
 end
