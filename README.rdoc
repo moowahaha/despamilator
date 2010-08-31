@@ -10,7 +10,7 @@ some commonly used heuristics from the world of anti-spam to help you decide whe
 
 == FEATURES/PROBLEMS:
 
-* Added easy rails validation added!! :D
+* Added sexy rails validation!! :D
 
 == SYNOPSIS:
 
