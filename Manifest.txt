@@ -4,7 +4,6 @@ PostInstall.txt
 README.rdoc
 Rakefile
 despamilator.gemspec
-despamliator.gemspec
 lib/despamilator.rb
 lib/despamilator/filter.rb
 lib/despamilator/filter/funky_consonant.rb
