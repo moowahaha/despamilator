@@ -3,7 +3,7 @@ require File.dirname(__FILE__) + '/../spec_helper.rb'
 describe "Url" do
   it "should return a score for 1 url" do
     dspam = Despamilator.new('http://www.blah.com')
-    dspam.score.should == 0.15
+    dspam.score.should == 0.2
   end
 
   describe 'attributes' do
@@ -28,12 +28,12 @@ describe "Url" do
     end
 
     it "should have a score" do
-      @filter.score.should == 0.15
+      @filter.score.should == 0.2
     end
   end
 
   it "should score more for 2 misplaced urls" do
     dspam = Despamilator.new('http://www.blah.com http://www.poop.com')
-    dspam.score.to_s.should == 0.3.to_s
+    dspam.score.to_s.should == 0.4.to_s
   end
 end

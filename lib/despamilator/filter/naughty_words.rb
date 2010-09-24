@@ -24,5 +24,14 @@ def naughty_words
     shit
     dick
     tits
+    sex
+    nude
+    dicks
+    shemales
+    dildo
+    porn
+    cock
+    pussy
+    clit
   }
 end

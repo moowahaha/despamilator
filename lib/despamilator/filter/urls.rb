@@ -7,5 +7,5 @@ def description
 end
 
 def parse
-  self.append_score = 0.15 * self.text.downcase.scan(/http:\/\//).length
+  self.append_score = 0.20 * self.text.downcase.scan(/http:\/\//).length
 end
