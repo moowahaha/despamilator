@@ -1,6 +1,6 @@
 require File.dirname(__FILE__) + '/../spec_helper.rb'
 
-context "ScriptTag" do
+describe "ScriptTag" do
   describe "detecting various script tags" do
     ['<script type="whatever">', '<script></script>', '</script>', '<script>', "<script\n>"].each do |script_tag|
       [script_tag.upcase, script_tag.downcase].each do |script_tag|

@@ -1,0 +1,38 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    RedCloth (4.2.3)
+    activesupport (2.3.10)
+    diff-lcs (1.1.2)
+    hoe (2.7.0)
+      rake (>= 0.8.7)
+      rubyforge (>= 2.0.4)
+    json_pure (1.4.6)
+    newgem (1.5.3)
+      RedCloth (>= 4.1.1)
+      activesupport (~> 2.3.4)
+      hoe (>= 2.4.0)
+      rubigen (>= 1.5.3)
+      syntax (>= 1.0.0)
+    rake (0.8.7)
+    rspec (2.2.0)
+      rspec-core (~> 2.2)
+      rspec-expectations (~> 2.2)
+      rspec-mocks (~> 2.2)
+    rspec-core (2.2.1)
+    rspec-expectations (2.2.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.2.0)
+    rubigen (1.5.5)
+      activesupport (~> 2.3.5)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
+    syntax (1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  hoe (>= 2.7.0)
+  newgem
+  rspec (>= 2.0.1)

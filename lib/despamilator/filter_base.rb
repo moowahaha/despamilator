@@ -10,6 +10,10 @@ class Despamilator
       @matched = false
     end
 
+    def score
+      sprintf("%.3f", @score).to_f
+    end
+
     def description
       raise "No description defined in #{filename}"
     end
