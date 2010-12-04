@@ -34,7 +34,7 @@ class Despamilator
     end
 
     Dir.glob(File.dirname(__FILE__) + "/filter/*.rb").each do |filter_file|
-      next unless filter_file =~ /funky_consonant/ || filter_file =~ /naughty_q/ || filter_file =~ /ip_address_url/
+      next unless filter_file =~ /(funky_consonant|naughty_q|ip_address_url|long_words)/
 
       require filter_file
 
