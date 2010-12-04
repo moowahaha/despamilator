@@ -1,21 +1,27 @@
-def name
-  'Naughty Words'
-end
+require 'despamilator/filter_base'
 
-def description
-  'Detects cheeky words'
-end
+module DespamilatorFilter
 
-def parse
-  text = self.text.downcase
+  class NaughtyWords < Despamilator::FilterBase
 
-  naughty_words.each do |word|
-    self.append_score = 0.1 if text =~ /\b#{word}\b/
-  end
-end
+    def name
+      'Naughty Words'
+    end
 
-def naughty_words
-  %w{
+    def description
+      'Detects cheeky words'
+    end
+
+    def parse text
+      text.downcase!
+
+      naughty_words.each do |word|
+        self.append_score = 0.1 if text =~ /\b#{word}\b/
+      end
+    end
+
+    def naughty_words
+      %w{
     penis
     viagra
     bondage
@@ -33,5 +39,8 @@ def naughty_words
     cock
     pussy
     clit
-  }
+   }
+    end
+
+  end
 end
