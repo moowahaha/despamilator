@@ -11,7 +11,7 @@ describe "FunkyConsonant" do
     'Detects and scores each occurrence of a consonant next to an unlikely character'
   end
 
-  def filter_klass
+  def filter_class
     DespamilatorFilter::FunkyConsonant
   end
 

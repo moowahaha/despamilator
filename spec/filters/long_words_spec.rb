@@ -12,7 +12,7 @@ describe "LongWords" do
     'Detects long and unbroken strings'
   end
 
-  def filter_klass
+  def filter_class
     DespamilatorFilter::LongWords
   end
 

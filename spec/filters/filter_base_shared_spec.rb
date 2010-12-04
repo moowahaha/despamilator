@@ -3,7 +3,7 @@ shared_examples_for 'a filter' do
   describe 'attributes' do
 
     before :each do
-      @filter = filter_klass.new
+      @filter = filter_class.new
       @filter.parse(single_match_string)
     end
 
@@ -20,7 +20,7 @@ shared_examples_for 'a filter' do
   describe 'multiple matches' do
 
     before :all do
-      @filter = filter_klass.new
+      @filter = filter_class.new
       @filter.parse(multiple_match_string)
     end
 

@@ -12,7 +12,7 @@ describe "NaughtyWords" do
     'Detects cheeky words'
   end
 
-  def filter_klass
+  def filter_class
     DespamilatorFilter::NaughtyWords
   end
 

@@ -12,7 +12,7 @@ describe "NaughtyQ" do
     'Detects possible misuse of the letter Q (English language)'
   end
 
-  def filter_klass
+  def filter_class
     DespamilatorFilter::NaughtyQ
   end
 

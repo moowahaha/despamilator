@@ -12,7 +12,7 @@ describe "IP Address URL" do
     'Detects IP address URLs'
   end
 
-  def filter_klass
+  def filter_class
     DespamilatorFilter::IpAddressUrl
   end
 
