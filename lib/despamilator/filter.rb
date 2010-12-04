@@ -34,8 +34,6 @@ class Despamilator
     end
 
     Dir.glob(File.dirname(__FILE__) + "/filter/*.rb").each do |filter_file|
-      next unless filter_file =~ /(funky_consonant|naughty_q|ip_address_url|long_words|naughty_words|numbers_and_words)/
-
       require filter_file
 
       @@filter_classes ||= []

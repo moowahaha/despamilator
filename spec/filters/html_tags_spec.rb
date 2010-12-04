@@ -108,38 +108,47 @@ describe "HtmlTags" do
               "<\r#{script_tag}\r/>"
       ].each do |tag|
         it "should detect '#{tag}'" do
-          dspam = Despamilator.new(tag)
+          dspam = DespamilatorFilter::HtmlTags.new
+          dspam.parse(tag)
           dspam.score.should == 0.3
         end
       end
     end
   end
 
-  describe 'attributes' do
-    before :all do
-      @dspam = Despamilator.new('<xmp>').matched_by.first
-    end
+  it_should_behave_like "a filter"
 
-    it "should have a name" do
-      @dspam.name.should == 'Detects HTML tags in text'
-    end
-
-    it "should have a description" do
-      @dspam.description.should == 'Searches for various HTML tags'
-    end
-
-    it "should have a filename" do
-      @dspam.filename.should == 'html_tags.rb'
-    end
+  def filter_name
+    'HTML tags'
   end
 
-  describe 'bug fixes' do
-    it "should detect an h1" do
-      Despamilator.new('<h1>TITLE!!</h1>').score.should == 0.3
-    end
-
-    it "should not detect tags twice" do
-      Despamilator.new('<i>italic</i>').score.should == 0.3
-    end
+  def filter_description
+    'Detects HTML tags in text'
   end
+
+  def filter_class
+    DespamilatorFilter::HtmlTags
+  end
+
+  def single_match_string
+    '<xmp>'
+  end
+
+  def single_match_score
+    0.3
+  end
+
+  def multiple_match_string
+    '<h1></h1> <h2></h2>'
+  end
+
+  def multiple_match_quantity
+    2
+  end
+
+  def multiple_match_score
+    0.6
+  end
+
+
 end

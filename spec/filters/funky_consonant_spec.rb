@@ -27,6 +27,10 @@ describe "FunkyConsonant" do
     0.1
   end
 
+  def multiple_match_quantity
+    2
+  end
+
   def single_match_score
     0.05
   end

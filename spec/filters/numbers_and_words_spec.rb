@@ -27,6 +27,10 @@ describe "NumbersAndWords" do
     0.2
   end
 
+  def multiple_match_quantity
+    2
+  end
+
   def single_match_score
     0.1
   end

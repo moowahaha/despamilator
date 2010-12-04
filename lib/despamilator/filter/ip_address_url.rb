@@ -13,11 +13,7 @@ module DespamilatorFilter
     end
 
     def parse text
-      ip_matches = text.downcase.scan(/http:\/\/\d+\.\d+\.\d+\.\d+/).length
-
-      self.append_score = 0.5 if ip_matches > 0
-
-      2.upto(ip_matches) {self.append_score = 0}
+      self.append_score = 0.5 if text.downcase.scan(/http:\/\/\d+\.\d+\.\d+\.\d+/).length > 0
     end
 
   end

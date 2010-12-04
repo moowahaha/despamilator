@@ -25,7 +25,7 @@ shared_examples_for 'a filter' do
     end
 
     it "should have a number of matches" do
-      @filter.matches.should == 2
+      @filter.matches.should == multiple_match_quantity
     end
 
     it "should have a score" do

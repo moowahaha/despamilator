@@ -1,35 +1,39 @@
 require File.dirname(__FILE__) + '/../spec_helper.rb'
 
 describe "SquareBrackets" do
-  it "should return a score for 1 square bracket" do
-    dspam = Despamilator.new('[')
-    dspam.score.should == 0.05
+
+  it_should_behave_like "a filter"
+
+  def filter_name
+    'Square Brackets'
   end
 
-  describe 'attributes' do
-    before :each do
-      @filter = Despamilator.new('[]').matched_by.first
-    end
+  def filter_description
+    'Detects each square bracket in a string'
+  end
 
-    it "should have a filename" do
-      @filter.filename.should == 'square_brackets.rb'
-    end
+  def filter_class
+    DespamilatorFilter::SquareBrackets
+  end
 
-    it "should have a name" do
-      @filter.name.should == 'Square Brackets'
-    end
+  def single_match_string
+    '['
+  end
 
-    it "should have a description" do
-      @filter.description.should == 'Detects each square bracket in a string'
-    end
+  def multiple_match_string
+    '[]'
+  end
 
-    it "should have a number of matches" do
-      @filter.matches.should == 2
-    end
+  def multiple_match_score
+    0.1
+  end
 
-    it "should have a score" do
-      @filter.score.should == 0.1
-    end
+  def multiple_match_quantity
+    2
+  end
+
+  def single_match_score
+    0.05
   end
 
 end

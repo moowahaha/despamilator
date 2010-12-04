@@ -1,5 +1,5 @@
 require 'rspec'
-require File.dirname(__FILE__) + '/filters/filter_base_shared_spec.rb'
+require File.dirname(__FILE__) + '/filters/shared_specs/filter_base_shared_spec.rb'
 
 $:.unshift(File.dirname(__FILE__) + '/../lib')
 

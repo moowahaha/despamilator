@@ -28,6 +28,10 @@ describe "IP Address URL" do
     0.5
   end
 
+  def multiple_match_quantity
+    1
+  end
+
   def single_match_score
     0.5
   end
