@@ -1,12 +1,10 @@
 class Despamilator
   class FilterBase
-    attr_accessor :text, :score, :filename, :matches
+    attr_accessor :text, :score, :matches
 
-    def initialize text, filename
+    def initialize
       @matches = 0
-      @filename = filename
       @score = 0
-      @text = text
       @matched = false
     end
 
@@ -15,15 +13,15 @@ class Despamilator
     end
 
     def description
-      raise "No description defined in #{filename}"
+      raise "No description defined for #{self.class}"
     end
 
     def parse blah
-      raise "No parser defined in #{filename}"
+      raise "No parser defined for #{self.class}"
     end
 
     def name
-      raise "No name defined in #{filename}"
+      raise "No name defined for #{self.class}"
     end
     
     def matched?

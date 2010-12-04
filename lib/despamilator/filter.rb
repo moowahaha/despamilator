@@ -6,29 +6,15 @@ class Despamilator
       @filters ||= []
       @matches ||= []
       @score ||= 0
-      load_filters text
-      run_filters
+      run_filters text
     end
 
     private
 
-    def load_filters text
-      Dir.glob(File.dirname(__FILE__) + "/filter/*.rb").each do |filter_file|
-        filter_name = classify_filename filter_file
-
-        filter_code = File.open(filter_file, File::RDWR).read
-        filter = Class.new
-        filter.class_eval(
-                "require 'despamilator/filter_base'\nclass #{filter_name} < Despamilator::FilterBase\n#{filter_code}\nend"
-        )
-
-        @filters.push(filter.const_get(filter_name).new(text.to_s.dup, File.basename(filter_file)))
-      end
-    end
-
-    def run_filters
-      @filters.each do |filter|
-        filter.parse
+    def run_filters text
+      @@filter_classes.each do |filter_class|
+        filter = filter_class.new
+        filter.parse text.dup
 
         if filter.matched?
           @matches.push(filter)
@@ -37,12 +23,24 @@ class Despamilator
       end
     end
 
-    def classify_filename filename
+    def self.classname_for filename
       classname = ''
+
       File.basename(filename).gsub(/\.rb$/, '').split('_').each do |filename_part|
         classname += filename_part.capitalize
       end
-      classname || filename.capitalize
+
+      classname
     end
+
+    Dir.glob(File.dirname(__FILE__) + "/filter/*.rb").each do |filter_file|
+      next unless filter_file =~ /funky_consonant/ || filter_file =~ /naughty_q/ || filter_file =~ /ip_address_url/
+
+      require filter_file
+
+      @@filter_classes ||= []
+      @@filter_classes << Object.const_get('DespamilatorFilter').const_get(Despamilator::Filter.classname_for(filter_file))
+    end
+    
   end
 end

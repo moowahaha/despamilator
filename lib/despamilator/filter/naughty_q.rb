@@ -1,21 +1,31 @@
-def name
-  'Naughty Q'
-end
+require 'despamilator/filter_base'
 
-def description
-  'Detects possible misuse of the letter Q (English language)'
-end
+module DespamilatorFilter
 
-def parse
-  post_matches = self.text.downcase.scan(/q(\w|\d)/)
-  pre_matches = self.text.downcase.scan(/(\w|\d)q/)
+  class NaughtyQ < Despamilator::FilterBase
 
-  matches = post_matches + pre_matches
+    def name
+      'Naughty Q'
+    end
 
-  return unless matches
+    def description
+      'Detects possible misuse of the letter Q (English language)'
+    end
 
-  matches.each do |match|
-    match = match.first
-    self.append_score = 0.2 unless match == 'u' or match == 'a' or match == 'k'
+    def parse text
+      post_matches = text.downcase.scan(/q(\w|\d)/)
+      pre_matches = text.downcase.scan(/(\w|\d)q/)
+
+      matches = post_matches + pre_matches
+
+      return unless matches
+
+      matches.each do |match|
+        match = match.first
+        self.append_score = 0.2 unless match == 'u' or match == 'a' or match == 'k'
+      end
+    end
+
   end
+
 end

@@ -1,21 +1,31 @@
-def name
-  'Funky Consonant'
-end
+require 'despamilator/filter_base'
 
-def description
-  'Detects and scores each occurrence of a consonant next to an unlikely character'
-end
+module DespamilatorFilter
 
-def parse
-  text = self.text.downcase
+  class FunkyConsonant < Despamilator::FilterBase
 
-  consonant_pairs.each do |pair|
-    [pair, pair.reverse].each do |combo_pair|
-      self.append_score = 0.05 unless text.scan(/#{combo_pair}/).empty?
+    def name
+      'Funky Consonant'
     end
-  end
-end
 
-def consonant_pairs
-  %w{ zt gb vk vt jk mj dm jm }
+    def description
+      'Detects and scores each occurrence of a consonant next to an unlikely character'
+    end
+
+    def parse text
+      text.downcase!
+
+      consonant_pairs.each do |pair|
+        [pair, pair.reverse].each do |combo_pair|
+          self.append_score = 0.05 unless text.scan(/#{combo_pair}/).empty?
+        end
+      end
+    end
+
+    def consonant_pairs
+      %w{ zt gb vk vt jk mj dm jm xz bn }
+    end
+    
+  end
+
 end

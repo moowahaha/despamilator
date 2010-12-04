@@ -1,8 +1,9 @@
 require 'rspec'
+require File.dirname(__FILE__) + '/filters/filter_base_shared_spec.rb'
 
 $:.unshift(File.dirname(__FILE__) + '/../lib')
-require 'despamilator'
 
+require 'despamilator'
 require 'zlib'
 
 def unzip_file filename
