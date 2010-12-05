@@ -27,6 +27,9 @@ GEM
       activesupport (~> 2.3.5)
     rubyforge (2.0.4)
       json_pure (>= 1.1.7)
+    simplecov (0.3.7)
+      simplecov-html (>= 0.3.7)
+    simplecov-html (0.3.9)
     syntax (1.0.0)
 
 PLATFORMS
@@ -34,5 +37,6 @@ PLATFORMS
 
 DEPENDENCIES
   hoe (>= 2.7.0)
-  newgem
+  newgem (>= 1.5.3)
   rspec (>= 2.0.1)
+  simplecov (>= 0.3.7)

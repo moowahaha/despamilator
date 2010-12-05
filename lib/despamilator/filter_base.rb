@@ -18,7 +18,7 @@ class Despamilator
     end
 
     def parse blah
-      raise "No parser defined for #{self.class}"
+      raise "No parse defined for #{self.class}"
     end
 
     def name

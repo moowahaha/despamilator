@@ -2,3 +2,5 @@
 *.gem
 pkg/
 .bundle
+coverage
+.DS_Store
