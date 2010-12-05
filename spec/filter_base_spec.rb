@@ -1,6 +1,4 @@
-require File.dirname(__FILE__) + '/spec_helper.rb'
 require 'despamilator/filter_base'
-
 
 class UnimplementedFilter < Despamilator::FilterBase
 end

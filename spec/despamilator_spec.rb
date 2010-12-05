@@ -1,5 +1,3 @@
-require File.dirname(__FILE__) + '/spec_helper.rb'
-
 describe Despamilator do
   before :each do
     @dspam = Despamilator.new('this text is absolutely fine')

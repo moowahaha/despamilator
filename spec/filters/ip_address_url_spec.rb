@@ -1,6 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper.rb'
-
-describe "IP Address URL" do
+describe DespamilatorFilter::IPAddressURL do
 
   it_should_behave_like "a filter"
 
@@ -13,7 +11,7 @@ describe "IP Address URL" do
   end
 
   def filter_class
-    DespamilatorFilter::IpAddressUrl
+    DespamilatorFilter::IPAddressURL
   end
 
   def single_match_string

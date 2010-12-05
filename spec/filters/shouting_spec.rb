@@ -1,6 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper.rb'
-
-describe "Shouting" do
+describe DespamilatorFilter::Shouting do
 
   it_should_behave_like "a filter"
 

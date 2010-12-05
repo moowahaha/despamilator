@@ -1,5 +1,3 @@
-require File.dirname(__FILE__) + '/spec_helper.rb'
-
 describe Despamilator do
 
   Dir.glob(File.join(File.dirname(__FILE__), 'clean_corpus', '*.txt.gz')).each do |sample|

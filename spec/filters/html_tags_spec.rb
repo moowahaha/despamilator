@@ -1,6 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper.rb'
-
-describe "HtmlTags" do
+describe DespamilatorFilter::HtmlTags do
   [
           '!--',
           '!DOCTYPE',

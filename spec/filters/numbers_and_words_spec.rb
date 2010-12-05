@@ -1,6 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper.rb'
-
-describe "NumbersAndWords" do
+describe DespamilatorFilter::NumbersAndWords do
   it_should_behave_like "a filter"
 
   def filter_name

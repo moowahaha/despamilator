@@ -1,6 +1,4 @@
-require File.dirname(__FILE__) + '/../spec_helper.rb'
-
-describe "Url" do
+describe DespamilatorFilter::URLs do
 
   it_should_behave_like "a filter"
 
@@ -13,7 +11,7 @@ describe "Url" do
   end
 
   def filter_class
-    DespamilatorFilter::Urls
+    DespamilatorFilter::URLs
   end
 
   def single_match_string

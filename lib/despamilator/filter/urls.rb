@@ -2,7 +2,7 @@ require 'despamilator/filter_base'
 
 module DespamilatorFilter
 
-  class Urls < Despamilator::FilterBase
+  class URLs < Despamilator::FilterBase
 
     def name
       'URLs'

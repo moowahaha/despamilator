@@ -2,7 +2,7 @@ require 'despamilator/filter_base'
 
 module DespamilatorFilter
 
-  class IpAddressUrl < Despamilator::FilterBase
+  class IPAddressURL < Despamilator::FilterBase
 
     def name
       'IP Address URL'
