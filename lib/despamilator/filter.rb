@@ -1,9 +1,10 @@
 class Despamilator
   class Filter
+    FILTER_MODULE = 'DespamilatorFilter'
+    
     attr_accessor :matches, :score
 
     def initialize text
-      @filters ||= []
       @matches ||= []
       @score ||= 0
       run_filters text
@@ -12,8 +13,8 @@ class Despamilator
     private
 
     def run_filters text
-      @@filter_classes.each do |filter_class|
-        filter = filter_class.new
+      Object.const_get(FILTER_MODULE).constants.each do |filter_class|
+        filter = Object.const_get(FILTER_MODULE).const_get(filter_class).new
         filter.parse text.dup
 
         if filter.matched?
@@ -23,21 +24,8 @@ class Despamilator
       end
     end
 
-    def self.classname_for filename
-      classname = ''
-
-      File.basename(filename).gsub(/\.rb$/, '').split('_').each do |filename_part|
-        classname += filename_part.capitalize
-      end
-
-      classname
-    end
-
-    Dir.glob(File.dirname(__FILE__) + "/filter/*.rb").each do |filter_file|
+    Dir.glob(File.join(File.dirname(__FILE__), 'filter', '*.rb')).each do |filter_file|
       require filter_file
-
-      @@filter_classes ||= []
-      @@filter_classes << Object.const_get('DespamilatorFilter').const_get(Despamilator::Filter.classname_for(filter_file))
     end
     
   end

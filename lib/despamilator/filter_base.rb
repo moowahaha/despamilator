@@ -9,6 +9,7 @@ class Despamilator
     end
 
     def score
+      # workaround for a bug in ruby 1.9.2's floats
       sprintf("%.3f", @score).to_f
     end
 

@@ -15,7 +15,6 @@ some commonly used heuristics from the world of anti-spam to help you decide whe
 == SYNOPSIS:
 
   # using Despamilator
-  require 'rubygems'
   require 'desplamilator'
 
   dspam = Despamilator.new('some text with an <h2> tag qthhg')
