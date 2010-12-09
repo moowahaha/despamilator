@@ -3,9 +3,8 @@ $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) ||
 require 'despamilator/filter'
 
 class Despamilator
-  VERSION = "2.0"
+  VERSION = "1.0"
 
-  # 
   def initialize text
     @filters = Despamilator::Filter.new text
   end

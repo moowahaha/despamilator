@@ -1,7 +1,5 @@
 class Despamilator
   class Filter
-    FILTER_MODULE = 'DespamilatorFilter'
-    
     attr_accessor :matches, :score
 
     def initialize text
@@ -13,8 +11,10 @@ class Despamilator
     private
 
     def run_filters text
-      Object.const_get(FILTER_MODULE).constants.each do |filter_class|
-        filter = Object.const_get(FILTER_MODULE).const_get(filter_class).new
+      filter_namespace = Object.const_get('DespamilatorFilter')
+
+      filter_namespace.constants.each do |filter_class|
+        filter = filter_namespace.const_get(filter_class).new
         filter.parse text.dup
 
         if filter.matched?

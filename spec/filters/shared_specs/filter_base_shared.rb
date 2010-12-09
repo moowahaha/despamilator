@@ -1,53 +1,59 @@
-shared_examples_for 'a filter' do
-
-  describe 'attributes' do
-
-    before :each do
-      @filter = filter_class.new
-      @filter.parse(single_match_string)
-    end
-
-    it "should have a name" do
-      @filter.name.should == filter_name
-    end
-
-    it "should have a description" do
-      @filter.description.should == filter_description
-    end
-
+def the_name_should_be expected_name
+  it "should have a name" do
+    described_class.new.name.should == expected_name
   end
+end
 
-  describe 'multiple matches' do
+def the_description_should_be expected_description
+  it "should have a description" do
+    described_class.new.description.should == expected_description
+  end
+end
+
+def a_single_match_of string, expectation
+  describe 'detecting a single match' do
 
     before :all do
-      @filter = filter_class.new
-      @filter.parse(multiple_match_string)
+      @filter = described_class.new
+      @filter.parse(string)
     end
 
-    it "should have a number of matches" do
-      @filter.matches.should == multiple_match_quantity
+    it "should only match once" do
+      @filter.matches.should == 1
     end
 
     it "should have a score" do
-      @filter.score.should == multiple_match_score
+      @filter.score.should == expectation[:should_score]
     end
 
   end
+end
 
-  describe "integration" do
+def a_multiple_match_of string, expectation
+  describe 'detecting a multiple matches' do
 
-    before do
-      @filter = Despamilator.new(single_match_string)
+    before :all do
+      @filter = described_class.new
+      @filter.parse(string)
     end
 
-    it "should return a score for 1 match" do
-      @filter.score.should == single_match_score
+    it "should match many times" do
+      @filter.matches.should == expectation[:should_score].last.count
     end
 
-    it "should return the name of the filter" do
-      @filter.matched_by.collect { |f| f.name == filter_name }.should_not be_empty
+    it "should have a score" do
+      @filter.score.should == expectation[:should_score].first
     end
 
   end
+end
+
+def despamilator_should_apply_the_filter_for string
+
+    it "should be applied during filtering" do
+      filter_name = described_class.new.name
+      despamilator = Despamilator.new(string)
+      despamilator.matched_by.collect { |f| f.name == filter_name }.should_not be_empty
+    end
 
 end

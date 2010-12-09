@@ -1,36 +1,9 @@
 describe DespamilatorFilter::FunkyConsonant do
-  it_should_behave_like "a filter"
+  the_name_should_be 'Funky Consonant'
+  the_description_should_be 'Detects and scores each occurrence of a consonant next to an unlikely character'
 
-  def filter_name
-    'Funky Consonant'
-  end
+  despamilator_should_apply_the_filter_for('zt')  
 
-  def filter_description
-    'Detects and scores each occurrence of a consonant next to an unlikely character'
-  end
-
-  def filter_class
-    DespamilatorFilter::FunkyConsonant
-  end
-
-  def single_match_string
-    'zt'
-  end
-
-  def multiple_match_string
-    'ztzt'
-  end
-
-  def multiple_match_score
-    0.1
-  end
-
-  def multiple_match_quantity
-    2
-  end
-
-  def single_match_score
-    0.05
-  end
-
+  a_single_match_of('zt', should_score: 0.05)
+  a_multiple_match_of('ztzt', should_score: [0.1, 2.times])
 end
