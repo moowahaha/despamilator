@@ -1,37 +1,11 @@
 describe DespamilatorFilter::IPAddressURL do
 
-  it_should_behave_like "a filter"
+  the_name_should_be 'IP Address URL'
+  the_description_should_be 'Detects IP address URLs'
 
-  def filter_name
-    'IP Address URL'
-  end
+  despamilator_should_apply_the_filter_for('http://12.34.56.78/')
 
-  def filter_description
-    'Detects IP address URLs'
-  end
-
-  def filter_class
-    DespamilatorFilter::IPAddressURL
-  end
-
-  def single_match_string
-    'http://12.34.56.78/'
-  end
-
-  def multiple_match_string
-    'http://12.34.56.78/ http://98.76.54.32/'
-  end
-
-  def multiple_match_score
-    0.5
-  end
-
-  def multiple_match_quantity
-    1
-  end
-
-  def single_match_score
-    0.5
-  end
+  a_single_match_of('http://12.34.56.78/', should_score: 0.5)
+  a_multiple_match_of('http://12.34.56.78/ http://98.76.54.32/', should_score: [0.5, 1.times])
 
 end

@@ -1,37 +1,11 @@
 describe DespamilatorFilter::NaughtyWords do
 
-  it_should_behave_like "a filter"
+  the_name_should_be 'Naughty Words'
+  the_description_should_be 'Detects cheeky words'
 
-  def filter_name
-    'Naughty Words'
-  end
+  despamilator_should_apply_the_filter_for('bondage')
 
-  def filter_description
-    'Detects cheeky words'
-  end
-
-  def filter_class
-    DespamilatorFilter::NaughtyWords
-  end
-
-  def single_match_string
-    'bondage'
-  end
-
-  def multiple_match_string
-    'viagra penis'
-  end
-
-  def multiple_match_score
-    0.2
-  end
-
-  def multiple_match_quantity
-    2
-  end
-
-  def single_match_score
-    0.1
-  end
+  a_single_match_of('bondage', should_score: 0.1)
+  a_multiple_match_of('viagra penis', should_score: [0.2, 2.times])
 
 end

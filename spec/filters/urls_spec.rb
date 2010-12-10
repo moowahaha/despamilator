@@ -1,37 +1,11 @@
 describe DespamilatorFilter::URLs do
 
-  it_should_behave_like "a filter"
+  the_name_should_be 'URLs'
+  the_description_should_be 'Detects each url in a string'
 
-  def filter_name
-    'URLs'
-  end
+  despamilator_should_apply_the_filter_for('zt')
 
-  def filter_description
-    'Detects each url in a string'
-  end
-
-  def filter_class
-    DespamilatorFilter::URLs
-  end
-
-  def single_match_string
-    'http://www.blah.com'
-  end
-
-  def multiple_match_string
-    'http://www.blah.com http://www.poop.com'
-  end
-
-  def multiple_match_score
-    0.4
-  end
-
-  def multiple_match_quantity
-    2
-  end
-
-  def single_match_score
-    0.2
-  end
+  a_single_match_of('http://www.blah.com', should_score: 0.2)
+  a_multiple_match_of('http://www.blah.com http://www.poop.com', should_score: [0.4, 2.times])
 
 end

@@ -1,38 +1,12 @@
 describe DespamilatorFilter::Shouting do
 
-  it_should_behave_like "a filter"
+  the_name_should_be 'Shouting'
+  the_description_should_be 'Detects and scores shouting (all caps)'
 
-  def filter_name
-    'Shouting'
-  end
+  despamilator_should_apply_the_filter_for('this lil string is 50 PERCENT SHOUTING')
 
-  def filter_description
-    'Detects and scores shouting (all caps)'
-  end
-
-  def filter_class
-    DespamilatorFilter::Shouting
-  end
-
-  def single_match_string
-    'this lil string is 50 PERCENT SHOUTING'
-  end
-
-  def multiple_match_string
-    'HELLO THERE!! THIS IS SHOUTING!!'
-  end
-
-  def multiple_match_score
-    0.5
-  end
-
-  def multiple_match_quantity
-    1
-  end
-
-  def single_match_score
-    0.25
-  end
+  a_single_match_of('this lil string is 50 PERCENT SHOUTING', should_score: 0.25)
+  a_multiple_match_of('HELLO THERE!! THIS IS SHOUTING!!', should_score: [0.5, 1.times])
 
   describe "exceptions" do
 

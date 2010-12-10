@@ -1,38 +1,12 @@
 describe DespamilatorFilter::ScriptTag do
 
-  it_should_behave_like "a filter"
+  the_name_should_be 'Script tag'
+  the_description_should_be 'Searches for variations for the HTML script tag'
 
-  def filter_name
-    'Script tag'
-  end
+  despamilator_should_apply_the_filter_for('<script>')
 
-  def filter_description
-    'Searches for variations for the HTML script tag'
-  end
-
-  def filter_class
-    DespamilatorFilter::ScriptTag
-  end
-
-  def single_match_string
-    '<script>'
-  end
-
-  def single_match_score
-    1
-  end
-
-  def multiple_match_string
-    '<script></script> <script></script>'
-  end
-
-  def multiple_match_quantity
-    1
-  end
-  
-  def multiple_match_score
-    1
-  end
+  a_single_match_of('<script>', should_score: 1)
+  a_multiple_match_of('<script></script> <script></script>', should_score: [1, 1.times])
 
   describe "detecting various script tags" do
     ['<script type="whatever">', '<script></script>', '</script>', '<script>', "<script\n>"].each do |script_tag|

@@ -1,4 +1,13 @@
 describe DespamilatorFilter::HtmlTags do
+
+  the_name_should_be 'HTML tags'
+  the_description_should_be 'Detects HTML tags in text'
+
+  despamilator_should_apply_the_filter_for('<xmp>')
+
+  a_single_match_of('<xmp>', should_score: 0.3)
+  a_multiple_match_of('<h1></h1> <h2></h2>', should_score: [0.6, 2.times])
+  
   [
           '!--',
           '!DOCTYPE',
@@ -113,40 +122,5 @@ describe DespamilatorFilter::HtmlTags do
       end
     end
   end
-
-  it_should_behave_like "a filter"
-
-  def filter_name
-    'HTML tags'
-  end
-
-  def filter_description
-    'Detects HTML tags in text'
-  end
-
-  def filter_class
-    DespamilatorFilter::HtmlTags
-  end
-
-  def single_match_string
-    '<xmp>'
-  end
-
-  def single_match_score
-    0.3
-  end
-
-  def multiple_match_string
-    '<h1></h1> <h2></h2>'
-  end
-
-  def multiple_match_quantity
-    2
-  end
-
-  def multiple_match_score
-    0.6
-  end
-
 
 end

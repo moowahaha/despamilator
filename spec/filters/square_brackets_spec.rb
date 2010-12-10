@@ -1,37 +1,11 @@
 describe DespamilatorFilter::SquareBrackets do
 
-  it_should_behave_like "a filter"
+  the_name_should_be 'Square Brackets'
+  the_description_should_be 'Detects each square bracket in a string'
 
-  def filter_name
-    'Square Brackets'
-  end
+  despamilator_should_apply_the_filter_for('[')
 
-  def filter_description
-    'Detects each square bracket in a string'
-  end
-
-  def filter_class
-    DespamilatorFilter::SquareBrackets
-  end
-
-  def single_match_string
-    '['
-  end
-
-  def multiple_match_string
-    '[]'
-  end
-
-  def multiple_match_score
-    0.1
-  end
-
-  def multiple_match_quantity
-    2
-  end
-
-  def single_match_score
-    0.05
-  end
+  a_single_match_of('[', should_score: 0.05)
+  a_multiple_match_of('[]', should_score: [0.1, 2.times])
 
 end

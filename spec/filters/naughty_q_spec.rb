@@ -1,37 +1,11 @@
 describe DespamilatorFilter::NaughtyQ do
 
-  it_should_behave_like "a filter"
+  the_name_should_be 'Naughty Q'
+  the_description_should_be 'Detects possible misuse of the letter Q (English language)'
 
-  def filter_name
-    'Naughty Q'
-  end
+  despamilator_should_apply_the_filter_for('qtu')
 
-  def filter_description
-    'Detects possible misuse of the letter Q (English language)'
-  end
-
-  def filter_class
-    DespamilatorFilter::NaughtyQ
-  end
-
-  def single_match_string
-    'qtu'
-  end
-
-  def multiple_match_string
-    'qtq'
-  end
-
-  def multiple_match_score
-    0.4
-  end
-
-  def multiple_match_quantity
-    2
-  end
-
-  def single_match_score
-    0.2
-  end
+  a_single_match_of('qtu', should_score: 0.2)
+  a_multiple_match_of('qtq', should_score: [0.4, 2.times])
 
 end

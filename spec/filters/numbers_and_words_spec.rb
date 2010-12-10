@@ -1,37 +1,12 @@
 describe DespamilatorFilter::NumbersAndWords do
-  it_should_behave_like "a filter"
 
-  def filter_name
-    'Numbers next to words'
-  end
+  the_name_should_be 'Numbers next to words'
+  the_description_should_be 'Detects unusual number/word combinations'
 
-  def filter_description
-    'Detects unusual number/word combinations'
-  end
+  despamilator_should_apply_the_filter_for('X5T')
 
-  def filter_class
-    DespamilatorFilter::NumbersAndWords
-  end
-
-  def single_match_string
-    'X5T'
-  end
-
-  def multiple_match_string
-    '4g6hk'
-  end
-
-  def multiple_match_score
-    0.2
-  end
-
-  def multiple_match_quantity
-    2
-  end
-
-  def single_match_score
-    0.1
-  end
+  a_single_match_of('X5T', should_score: 0.1)
+  a_multiple_match_of('4g6hk', should_score: [0.2, 2.times])
 
   describe 'exceptions' do
     before :all do

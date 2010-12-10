@@ -1,37 +1,11 @@
 describe DespamilatorFilter::LongWords do
 
-  it_should_behave_like "a filter"
+  the_name_should_be 'Long Words'
+  the_description_should_be 'Detects long and unbroken strings'
 
-  def filter_name
-    'Long Words'
-  end
+  despamilator_should_apply_the_filter_for('honorificabilitudinitatibus')
 
-  def filter_description
-    'Detects long and unbroken strings'
-  end
-
-  def filter_class
-    DespamilatorFilter::LongWords
-  end
-
-  def single_match_string
-    'honorificabilitudinitatibus'
-  end
-
-  def multiple_match_string
-    'honorificabilitudinitatibus antidisestablishmentarianism'
-  end
-
-  def multiple_match_score
-    0.2
-  end
-
-  def multiple_match_quantity
-    2
-  end
-
-  def single_match_score
-    0.1
-  end
+  a_single_match_of('honorificabilitudinitatibus', should_score: 0.1)
+  a_multiple_match_of('honorificabilitudinitatibus antidisestablishmentarianism', should_score: [0.2, 2.times])
 
 end
