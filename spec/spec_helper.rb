@@ -11,8 +11,4 @@ SimpleCov.at_exit do
   raise "Coverage is too low (#{SimpleCov.result.covered_percent})!" if SimpleCov.result.covered_percent < 100.0
 end
 
-
-$:.unshift(File.dirname(__FILE__) + '/../lib')
-
-require 'despamilator'
-require 'zlib'
+require File.join(File.dirname(__FILE__), '..', 'lib', 'despamilator')
