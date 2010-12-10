@@ -1,6 +1,8 @@
 require 'simplecov'
 
-require File.dirname(__FILE__) + '/filters/shared_specs/filter_base_shared.rb'
+Dir.glob(File.join(File.dirname(__FILE__), 'helpers', '*.rb')).each do |file|
+  require file
+end
 
 SimpleCov.start if ENV['WITH_COVERAGE']
 
@@ -14,7 +16,3 @@ $:.unshift(File.dirname(__FILE__) + '/../lib')
 
 require 'despamilator'
 require 'zlib'
-
-def unzip_file filename
-  Zlib::GzipReader.open(filename).read
-end
