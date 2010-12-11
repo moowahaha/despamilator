@@ -7,5 +7,5 @@ gem 'newgem', '>= 1.5.3'
 group :test do
   gem 'rspec', '>= 2.0.1'
   gem 'simplecov', '>= 0.3.7'
-  gem 'one_hundred_percent_coverage', :git => 'git://github.com/moowahaha/one_hundred_percent_coverage'
+  gem 'one_hundred_percent_coverage'
 end
