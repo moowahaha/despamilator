@@ -16,7 +16,7 @@ some commonly used heuristics from the world of anti-spam to help you decide whe
 
 Using Despamilator:
 
-  require 'desplamilator'
+  require 'despamilator'
 
   # some time later...
 
@@ -60,8 +60,6 @@ Along side the above, the following methods are made available to each filter:
 Take a look at the "naughty_q" code and tests in "spec/filters/naughty_q.rb".
 
 ==== Example Filter:
-
-== NEW FILTERS:
 
 This example is to detect the letter "a". Put the code in
 lib/despamilator/filter/detect_letter_a.rb:
