@@ -7,7 +7,7 @@ describe DespamilatorFilter::HtmlTags do
 
   a_single_match_of('<xmp>', should_score: 0.3)
   a_multiple_match_of('<h1></h1> <h2></h2>', should_score: [0.6, 2.times])
-  
+
   [
           '!--',
           '!DOCTYPE',
@@ -119,8 +119,11 @@ describe DespamilatorFilter::HtmlTags do
           dspam.parse(tag)
           dspam.score.should == 0.3
         end
+
       end
+
     end
+
   end
 
 end
