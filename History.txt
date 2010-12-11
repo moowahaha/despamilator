@@ -32,3 +32,17 @@
 
 * Corrected typo in project home page. Big stuff.
 
+=== 1.0 2010-12-18
+
+* Refactor:
+ * Faster execution (2 X the speed)
+ * Prettier code (3 X sexiness)
+ * Made tests more stable and more easily written for filters.
+
+* Updated dev env to use rvm, Ruby 1.9.2 and bundler.
+
+* Updated all required gems to their latest versions.
+
+* Split out rails plugin (now despamilator-rails).
+
+* Added rdoc.

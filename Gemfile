@@ -3,5 +3,9 @@ source "http://rubygems.org"
 
 gem 'hoe', '>= 2.7.0'
 gem 'newgem', '>= 1.5.3'
-gem 'rspec', '>= 2.0.1', :group => :test
-gem 'simplecov', '>= 0.3.7', :group => :test
+
+group :test do
+  gem 'rspec', '>= 2.0.1'
+  gem 'simplecov', '>= 0.3.7'
+  gem 'one_hundred_percent_coverage', :git => 'git://github.com/moowahaha/one_hundred_percent_coverage'
+end

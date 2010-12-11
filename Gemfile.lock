@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/moowahaha/one_hundred_percent_coverage
+  revision: f5dbd15c68b5953d88747cf4f5b8c66eef088baf
+  specs:
+    one_hundred_percent_coverage (0.0.1)
+      simplecov (>= 0.3.7)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -38,5 +45,6 @@ PLATFORMS
 DEPENDENCIES
   hoe (>= 2.7.0)
   newgem (>= 1.5.3)
+  one_hundred_percent_coverage!
   rspec (>= 2.0.1)
   simplecov (>= 0.3.7)
