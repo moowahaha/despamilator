@@ -27,6 +27,10 @@ task :test => [:spec]
 task :default => [:test]
 task :install => [:install_gem]
 
+task :rdoc do
+    sh 'rdoc lib/despamilator.rb lib/despamilator/filter_base.rb'
+end
+
 task :cultivate do
   sh "touch Manifest.txt; rake check_manifest |grep -v \"(in \" | patch"
   sh "cat Manifest.txt  | grep -v 'bundle/config' | grep -v '_corpus' > Manifest.txt2"
