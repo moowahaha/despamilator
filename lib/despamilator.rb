@@ -34,4 +34,11 @@ class Despamilator
   def matched_by
     @filters.matches
   end
+
+  # Generic Test for Unsolicited Bulk Submissions. Similar to SpamAssassin's GTUBE.
+  # A string that will result in a spam score of at least 100. Handy for testing.
+
+  def self.gtubs_test_string
+    '89913b8a065b7092721fe995877e097681683af9d3ab767146d5d6fd050fc0bda7ab99f4232d94a1'
+  end
 end

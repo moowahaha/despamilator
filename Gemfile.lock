@@ -42,6 +42,6 @@ DEPENDENCIES
   hoe (>= 2.7.0)
   newgem (>= 1.5.3)
   one_hundred_percent_coverage
-  rdoc
+  rdoc (>= 3.2)
   rspec (>= 2.0.1)
   simplecov (>= 0.3.7)
