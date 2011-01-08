@@ -27,6 +27,7 @@ task :test => [:spec]
 task :default => [:test]
 task :install => [:install_gem]
 
+desc 'Generate relevant documentation.'
 task :rdoc do
     sh 'rdoc lib/despamilator.rb lib/despamilator/filter_base.rb'
 end

@@ -1,516 +1,459 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-	<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-	<title>Class: Despamilator::FilterBase</title>
+  <title>Class: Despamilator::FilterBase</title>
 
-	<link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../rdoc.css" type="text/css" media="screen" />
 
-	<script src="../js/jquery.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/thickbox-compressed.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/quicksearch.js" type="text/javascript"
-		charset="utf-8"></script>
-	<script src="../js/darkfish.js" type="text/javascript"
-		charset="utf-8"></script>
+  <script src="../js/jquery.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="../js/thickbox-compressed.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="../js/quicksearch.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="../js/darkfish.js" type="text/javascript"
+    charset="utf-8"></script>
 
 </head>
 <body class="class">
 
-	<div id="metadata">
-		<div id="home-metadata">
-			<div id="home-section" class="section">
+  <div id="metadata">
+    <div id="home-metadata">
+      <div id="home-section" class="section">
         <h3 class="section-header">
           <a href="../index.html">Home</a>
           <a href="../index.html#classes">Classes</a>
           <a href="../index.html#methods">Methods</a>
         </h3>
-			</div>
-		</div>
+      </div>
+    </div>
 
-		<div id="file-metadata">
-			<div id="file-list-section" class="section">
-				<h3 class="section-header">In Files</h3>
-				<div class="section-body">
-					<ul>
-					
-						<li><a href="../lib/despamilator/filter_base_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-							class="thickbox" title="lib/despamilator/filter_base.rb">lib/despamilator/filter_base.rb</a></li>
-					
-					</ul>
-				</div>
-			</div>
+    <div id="file-metadata">
+      <div id="file-list-section" class="section">
+        <h3 class="section-header">In Files</h3>
+        <div class="section-body">
+          <ul>
+          
+            <li><a href="../lib/despamilator/filter_base_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/despamilator/filter_base.rb">lib/despamilator/filter_base.rb</a></li>
+          
+          </ul>
+        </div>
+      </div>
 
-			
-		</div>
+      
+    </div>
 
-		<div id="class-metadata">
+    <div id="class-metadata">
 
-			<!-- Parent Class -->
-			
-			<div id="parent-class-section" class="section">
-				<h3 class="section-header">Parent</h3>
-				
-				<p class="link">Object</p>
-				
-			</div>
-			
+      <!-- Parent Class -->
+      
+      <div id="parent-class-section" class="section">
+        <h3 class="section-header">Parent</h3>
+        
+        <p class="link">Object</p>
+        
+      </div>
+      
 
-			<!-- Namespace Contents -->
-			
+      <!-- Namespace Contents -->
+      
 
-			<!-- Method Quickref -->
-			
-			<div id="method-list-section" class="section">
-				<h3 class="section-header">Methods</h3>
-				<ul class="link-list">
-					
-					<li><a href="#method-c-new">::new</a></li>
-					
-					<li><a href="#method-i-append_score%3D">#append_score=</a></li>
-					
-					<li><a href="#method-i-description">#description</a></li>
-					
-					<li><a href="#method-i-matched%3F">#matched?</a></li>
-					
-					<li><a href="#method-i-name">#name</a></li>
-					
-					<li><a href="#method-i-parse">#parse</a></li>
-					
-					<li><a href="#method-i-score">#score</a></li>
-					
-				</ul>
-			</div>
-			
+      <!-- Method Quickref -->
+      
+      <div id="method-list-section" class="section">
+        <h3 class="section-header">Methods</h3>
+        <ul class="link-list">
+          
+          <li><a href="#method-c-new">::new</a></li>
+          
+          <li><a href="#method-i-append_score-3D">#append_score=</a></li>
+          
+          <li><a href="#method-i-description">#description</a></li>
+          
+          <li><a href="#method-i-matched-3F">#matched?</a></li>
+          
+          <li><a href="#method-i-name">#name</a></li>
+          
+          <li><a href="#method-i-parse">#parse</a></li>
+          
+        </ul>
+      </div>
+      
 
-			<!-- Included Modules -->
-			
-		</div>
+      <!-- Included Modules -->
+      
+    </div>
 
-		<div id="project-metadata">
-			
-			
+    <div id="project-metadata">
+      
+      
 
-			<div id="classindex-section" class="section project-section">
-				<h3 class="section-header">Class Index
-					<span class="search-toggle"><img src="../images/find.png"
-						height="16" width="16" alt="[+]"
-						title="show/hide quicksearch" /></span></h3>
-				<form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-				<fieldset>
-					<legend>Quicksearch</legend>
-					<input type="text" name="quicksearch" value=""
-						class="quicksearch-field" />
-				</fieldset>
-				</form>
+      <div id="classindex-section" class="section project-section">
+        <h3 class="section-header">Class/Module Index
+          <span class="search-toggle"><img src="../images/find.png"
+            height="16" width="16" alt="[+]"
+            title="show/hide quicksearch" /></span></h3>
+        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
+        <fieldset>
+          <legend>Quicksearch</legend>
+          <input type="text" name="quicksearch" value=""
+            class="quicksearch-field" />
+        </fieldset>
+        </form>
 
-				<ul class="link-list">
-				
-					<li><a href="../Despamilator.html">Despamilator</a></li>
-				
-					<li><a href="../Despamilator/FilterBase.html">Despamilator::FilterBase</a></li>
-				
-				</ul>
-				<div id="no-class-search-results" style="display: none;">No matching classes.</div>
-			</div>
+        <ul class="link-list">
+        
+          <li><a href="../Despamilator.html">Despamilator</a></li>
+        
+          <li><a href="../Despamilator/FilterBase.html">Despamilator::FilterBase</a></li>
+        
+        </ul>
+        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
+      </div>
 
-			
-		</div>
-	</div>
+      
+    </div>
+  </div>
 
-	<div id="documentation">
-		<h1 class="class">Despamilator::FilterBase</h1>
+  <div id="documentation">
+    <h1 class="class">Despamilator::FilterBase</h1>
 
-		<div id="description">
-			<p>
-This class is the base class of all the despamilator filters.
-</p>
+    <div id="description">
+      
+<p>This class is the base class of all the despamilator filters.</p>
+
 <h2>EXAMPLE:</h2>
-<p>
-This example is to detect the letter &#8220;a&#8221;. Put the code in
-lib/despamilator/filter/detect_letter_a.rb:
-</p>
-<pre>
-  require 'despamilator/filter_base'
 
-  module DespamilatorFilter
+<p>This example is to detect the letter “a”. Put the code in
+lib/despamilator/filter/detect_letter_a.rb:</p>
 
-    class DetectLetterA &lt; Despamilator::FilterBase
+<pre>require 'despamilator/filter_base'
 
-      def name
-        'Detecting the letter A'
-      end
+module DespamilatorFilter
 
-      def description
-        'Detects the letter &quot;a&quot; in a string for no reason other than a demo'
-      end
+  class DetectLetterA &lt; Despamilator::FilterBase
 
-      def parse text
-        if text.downcase.scan(/a/)
-        # add 0.1 to the score of the text
-        self.append_score = 0.1
-      end
+    def name
+      'Detecting the letter A'
     end
-  end</pre>
 
-		</div>
+    def description
+      'Detects the letter &quot;a&quot; in a string for no reason other than a demo'
+    end
 
-		<!-- Constants -->
-		
+    def parse text
+      if text.downcase.scan(/a/)
+      # add 0.1 to the score of the text
+      self.append_score = 0.1
+    end
+  end
+end</pre>
 
-		<!-- Attributes -->
-		
-		<div id="attribute-method-details" class="method-section section">
-			<h3 class="section-header">Attributes</h3>
+    </div>
 
-			
-			<div id="text-attribute-method" class="method-detail">
-				<a name="text"></a>
-				
-				<a name="text="></a>
-				
-				<div class="method-heading attribute-method-heading">
-					<span class="method-name">text</span><span
-						class="attribute-access-type">[RW]</span>
-				</div>
+    <!-- Constants -->
+    
 
-				<div class="method-description">
-				
-				
-				
-				</div>
-			</div>
-			
-			<div id="score-attribute-method" class="method-detail">
-				<a name="score"></a>
-				
-				<a name="score="></a>
-				
-				<div class="method-heading attribute-method-heading">
-					<span class="method-name">score</span><span
-						class="attribute-access-type">[RW]</span>
-				</div>
+    <!-- Attributes -->
+    
+    <div id="attribute-method-details" class="method-section section">
+      <h3 class="section-header">Attributes</h3>
 
-				<div class="method-description">
-				
-				
-				
-				</div>
-			</div>
-			
-			<div id="matches-attribute-method" class="method-detail">
-				<a name="matches"></a>
-				
-				<a name="matches="></a>
-				
-				<div class="method-heading attribute-method-heading">
-					<span class="method-name">matches</span><span
-						class="attribute-access-type">[RW]</span>
-				</div>
+      
+      <div id="text-attribute-method" class="method-detail">
+        <a name="text"></a>
+        
+        <a name="text="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">text</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
 
-				<div class="method-description">
-				
-				
-				
-				</div>
-			</div>
-			
-		</div>
-		
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="score-attribute-method" class="method-detail">
+        <a name="score"></a>
+        
+        <a name="score="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">score</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
 
-		<!-- Methods -->
-		
-		<div id="public-class-method-details" class="method-section section">
-			<h3 class="section-header">Public Class Methods</h3>
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="matches-attribute-method" class="method-detail">
+        <a name="matches"></a>
+        
+        <a name="matches="></a>
+        
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">matches</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
 
-		
-			<div id="new-method" class="method-detail ">
-				<a name="method-c-new"></a>
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </div>
+    
 
-				<div class="method-heading">
-				
-					<span class="method-name">new</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+    <!-- Methods -->
+    
+    <div id="public-class-method-details" class="method-section section">
+      <h3 class="section-header">Public Class Methods</h3>
 
-				<div class="method-description">
-					
-					<p>
-Constructor for the class.
-</p>
-					
+    
+      <div id="new-method" class="method-detail ">
+        <a name="method-c-new"></a>
 
-					
-					<div class="method-source-code"
-						id="new-source">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Constructor for the class.</p>
+          
+
+          
+          <div class="method-source-code"
+            id="new-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/despamilator/filter_base.rb, line 37</span>
-37:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>
-38:       <span class="ruby-ivar">@matches</span> = <span class="ruby-value">0</span>
-39:       <span class="ruby-ivar">@score</span> = <span class="ruby-value">0</span>
-40:       <span class="ruby-ivar">@matched</span> = <span class="ruby-keyword kw">false</span>
-41:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/despamilator/filter_base.rb, line 37</span>
+def initialize
+  <span class="ruby-ivar">@matches</span> = 0
+  <span class="ruby-ivar">@score</span> = 0
+  <span class="ruby-ivar">@matched</span> = false
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-		</div>
-	
-		<div id="public-instance-method-details" class="method-section section">
-			<h3 class="section-header">Public Instance Methods</h3>
+    
+    </div>
+  
+    <div id="public-instance-method-details" class="method-section section">
+      <h3 class="section-header">Public Instance Methods</h3>
 
-		
-			<div id="description-method" class="method-detail ">
-				<a name="method-i-description"></a>
+    
+      <div id="description-method" class="method-detail ">
+        <a name="method-i-description"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">description</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-				<div class="method-description">
-					
-					<p>
-The nice description of the filter. Usually no more than a sentence.
-</p>
-					
+        <div class="method-description">
+          
+          <p>The nice description of the filter. Usually no more than a sentence.</p>
+          
 
-					
-					<div class="method-source-code"
-						id="description-source">
+          
+          <div class="method-source-code"
+            id="description-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/despamilator/filter_base.rb, line 52</span>
-52:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">description</span>
-53:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No description defined for #{self.class}&quot;</span>
-54:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/despamilator/filter_base.rb, line 52</span>
+def description
+  raise &quot;No description defined for #{self.class}&quot;
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="matched--method" class="method-detail ">
-				<a name="method-i-matched%3F"></a>
+    
+      <div id="matched-3F-method" class="method-detail ">
+        <a name="method-i-matched-3F"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">matched?</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        
+        <div class="method-heading">
+          <span class="method-name">matched?</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-				<div class="method-description">
-					
-					<p>
-Boolean. Whether or not the filter matched anything.
-</p>
-					
+        <div class="method-description">
+          
+          <p>Boolean. Whether or not the filter matched anything.</p>
+          
 
-					
-					<div class="method-source-code"
-						id="matched--source">
+          
+          <div class="method-source-code"
+            id="matched-3F-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/despamilator/filter_base.rb, line 70</span>
-70:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">matched?</span>
-71:       <span class="ruby-ivar">@score</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
-72:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/despamilator/filter_base.rb, line 70</span>
+def matched?
+  <span class="ruby-ivar">@score</span> &gt; 0
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="name-method" class="method-detail ">
-				<a name="method-i-name"></a>
+    
+      <div id="name-method" class="method-detail ">
+        <a name="method-i-name"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">name</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        
+        <div class="method-heading">
+          <span class="method-name">name</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-				<div class="method-description">
-					
-					<p>
-The one or two word name for the filter.
-</p>
-					
+        <div class="method-description">
+          
+          <p>The one or two word name for the filter.</p>
+          
 
-					
-					<div class="method-source-code"
-						id="name-source">
+          
+          <div class="method-source-code"
+            id="name-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/despamilator/filter_base.rb, line 64</span>
-64:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">name</span>
-65:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No name defined for #{self.class}&quot;</span>
-66:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/despamilator/filter_base.rb, line 64</span>
+def name
+  raise &quot;No name defined for #{self.class}&quot;
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="parse-method" class="method-detail ">
-				<a name="method-i-parse"></a>
+    
+      <div id="parse-method" class="method-detail ">
+        <a name="method-i-parse"></a>
 
-				<div class="method-heading">
-				
-					<span class="method-name">parse</span><span
-						class="method-args">(text)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(text)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-				<div class="method-description">
-					
-					<p>
-This method parses some text. The score is assigned to the same instance.
-</p>
-					
+        <div class="method-description">
+          
+          <p>This method parses some text. The score is assigned to the same instance.</p>
+          
 
-					
-					<div class="method-source-code"
-						id="parse-source">
+          
+          <div class="method-source-code"
+            id="parse-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/despamilator/filter_base.rb, line 58</span>
-58:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse</span> <span class="ruby-identifier">text</span>
-59:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No parse defined for #{self.class}&quot;</span>
-60:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/despamilator/filter_base.rb, line 58</span>
+def parse text
+  raise &quot;No parse defined for #{self.class}&quot;
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-			<div id="score-method" class="method-detail ">
-				<a name="method-i-score"></a>
+    
+    </div>
+  
+    <div id="protected-instance-method-details" class="method-section section">
+      <h3 class="section-header">Protected Instance Methods</h3>
 
-				<div class="method-heading">
-				
-					<span class="method-name">score</span><span
-						class="method-args">()</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
+    
+      <div id="append_score-3D-method" class="method-detail ">
+        <a name="method-i-append_score-3D"></a>
 
-				<div class="method-description">
-					
-					<p>
-Returns the score the filter instance has calculated.
-</p>
-					
+        
+        <div class="method-heading">
+          <span class="method-name">append_score=</span><span
+            class="method-args">(new_score)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
 
-					
-					<div class="method-source-code"
-						id="score-source">
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code"
+            id="append_score-3D-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/despamilator/filter_base.rb, line 45</span>
-45:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">score</span>
-46:       <span class="ruby-comment cmt"># workaround for a bug in ruby 1.9.2's floats</span>
-47:       <span class="ruby-identifier">sprintf</span>(<span class="ruby-value str">&quot;%.3f&quot;</span>, <span class="ruby-ivar">@score</span>).<span class="ruby-identifier">to_f</span>
-48:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
+<span class="ruby-comment"># File lib/despamilator/filter_base.rb, line 76</span>
+def append_score= new_score
+  <span class="ruby-ivar">@matches</span> += 1
+  <span class="ruby-ivar">@score</span> += new_score
+end</pre>
+          </div>
+          
+        </div>
 
-				
+        
 
-				
-			</div>
+        
+      </div>
 
-		
-		</div>
-	
-		<div id="protected-instance-method-details" class="method-section section">
-			<h3 class="section-header">Protected Instance Methods</h3>
+    
+    </div>
+  
 
-		
-			<div id="append-score--method" class="method-detail ">
-				<a name="method-i-append_score%3D"></a>
+  </div>
 
-				<div class="method-heading">
-				
-					<span class="method-name">append_score=</span><span
-						class="method-args">(new_score)</span>
-					<span class="method-click-advice">click to toggle source</span>
-				
-				</div>
-
-				<div class="method-description">
-					
-					
-					
-
-					
-					<div class="method-source-code"
-						id="append-score--source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/despamilator/filter_base.rb, line 76</span>
-76:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">append_score=</span> <span class="ruby-identifier">new_score</span>
-77:       <span class="ruby-ivar">@matches</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-78:       <span class="ruby-ivar">@score</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">new_score</span>
-79:     <span class="ruby-keyword kw">end</span></pre>
-					</div>
-					
-				</div>
-
-				
-
-				
-			</div>
-
-		
-		</div>
-	
-
-	</div>
-
-
-	<div id="rdoc-debugging-section-dump" class="debugging-section">
-	
-		<p>Disabled; run with --debug to generate this.</p>
-	
-	</div>
-
-	<div id="validator-badges">
-		<p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
-		<p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
-			Rdoc Generator</a> 1.1.6</small>.</p>
-	</div>
+  <div id="validator-badges">
+    <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+    <p><small>Generated with the <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish
+      Rdoc Generator</a> 2</small>.</p>
+  </div>
 
 </body>
 </html>
