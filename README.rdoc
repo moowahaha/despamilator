@@ -100,7 +100,7 @@ As previously stated, ensure you put a spec test together as well!
 
 == LICENSE:
 
-Copyright (c) 2010 Stephen Hardisty
+Copyright (c) 2011 Stephen Hardisty
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
