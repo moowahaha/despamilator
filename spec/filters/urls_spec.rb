@@ -5,7 +5,7 @@ describe DespamilatorFilter::URLs do
 
   despamilator_should_apply_the_filter_for('zt')
 
-  a_single_match_of('http://www.blah.com', should_score: 0.2)
-  a_multiple_match_of('http://www.blah.com http://www.poop.com', should_score: [0.4, 2.times])
+  a_single_match_of('http://www.blah.com', should_score: 0.5)
+  a_multiple_match_of('http://www.blah.com http://www.poop.com', should_score: [1.0, 2.times])
 
 end
