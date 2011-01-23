@@ -39,6 +39,8 @@ module DespamilatorFilter
     cock
     pussy
     clit
+    preteen
+    lolita
    }
     end
 
