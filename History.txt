@@ -46,3 +46,13 @@
 * Split out rails plugin (now despamilator-rails).
 
 * Added rdoc.
+
+=== 1.1
+
+* Added new filter to detect a cache busting technique.
+
+* Significantly increased aggressiveness of URI and HTML filters.
+
+* Added a heap of new spam and clean samples.
+
+* Added test string ("gtubs") that will score 100. For use in tests.

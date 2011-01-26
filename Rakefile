@@ -21,8 +21,7 @@ end
 require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
 
-# TODO - want other tests/tasks run by default? Add them to the list
-# remove_task :default
+desc "Run tests"
 task :test => [:spec]
 task :default => [:test]
 task :install => [:install_gem]

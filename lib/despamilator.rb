@@ -14,7 +14,7 @@ require 'despamilator/filter'
 #  dspam.matched_by #=> array of matching filters
 
 class Despamilator
-  VERSION = "1.0"
+  VERSION = "1.1"
 
   # Constructor. Takes the text you which to parse and score.
 

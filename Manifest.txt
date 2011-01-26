@@ -11,6 +11,7 @@ despamilator.gemspec
 lib/despamilator.rb
 lib/despamilator/filter.rb
 lib/despamilator/filter/funky_consonant.rb
+lib/despamilator/filter/gtubs_test_filter.rb
 lib/despamilator/filter/html_tags.rb
 lib/despamilator/filter/ip_address_url.rb
 lib/despamilator/filter/long_words.rb
@@ -20,12 +21,14 @@ lib/despamilator/filter/numbers_and_words.rb
 lib/despamilator/filter/script_tag.rb
 lib/despamilator/filter/shouting.rb
 lib/despamilator/filter/square_brackets.rb
+lib/despamilator/filter/trailing_number.rb
 lib/despamilator/filter/urls.rb
 lib/despamilator/filter_base.rb
 scripts/despamilator_score.rb
 spec/despamilator_spec.rb
 spec/filter_base_spec.rb
 spec/filters/funky_consonant_spec.rb
+spec/filters/gtubs_test_filter_spec.rb
 spec/filters/html_tags_spec.rb
 spec/filters/ip_address_url_spec.rb
 spec/filters/long_words_spec.rb
@@ -35,6 +38,7 @@ spec/filters/numbers_and_words_spec.rb
 spec/filters/script_tag_spec.rb
 spec/filters/shouting_spec.rb
 spec/filters/square_brackets_spec.rb
+spec/filters/trailing_number_spec.rb
 spec/filters/urls_spec.rb
 spec/helpers/corpus_helper.rb
 spec/helpers/filter_helper.rb
