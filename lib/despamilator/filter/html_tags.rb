@@ -9,7 +9,7 @@ module DespamilatorFilter
 
       html_tags.each do |tag|
         if text.match(/<\s*#{tag}\W/) || text.match(/<\n*#{tag}\W/) || text.match(/\W#{tag}\s*\//) || text.match(/\W#{tag}\n*\//)
-          self.append_score = 0.45
+          self.append_score = 0.48
         end
       end
     end

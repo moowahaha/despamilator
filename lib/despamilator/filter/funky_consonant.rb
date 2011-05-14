@@ -23,7 +23,7 @@ module DespamilatorFilter
     end
 
     def consonant_pairs
-      %w{ zt gb vk vt jk mj dm jm xz bn }
+      %w{ zt gb vk vt jk mj dm jm xz bn yy fg gp cg }
     end
     
   end

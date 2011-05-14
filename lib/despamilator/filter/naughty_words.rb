@@ -16,12 +16,13 @@ module DespamilatorFilter
       text.downcase!
 
       naughty_words.each do |word|
-        self.append_score = 0.1 if text =~ /\b#{word}\b/
+        self.append_score = 0.1 if text =~ /\b#{word}s?\b/
       end
     end
 
     def naughty_words
       %w{
+    underage
     penis
     viagra
     bondage
@@ -30,10 +31,9 @@ module DespamilatorFilter
     shit
     dick
     tits
-    sex
     nude
     dicks
-    shemales
+    shemale
     dildo
     porn
     cock
