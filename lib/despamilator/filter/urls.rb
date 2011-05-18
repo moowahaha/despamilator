@@ -18,7 +18,7 @@ module DespamilatorFilter
       text.gsub!(/http:\/\/\d+\.\d+\.\d+\.\d+/, '')
 
       1.upto(text.scan(/http:\/\//).length) do
-        self.append_score = 0.45
+        self.append_score = 0.4
       end
     end
 
