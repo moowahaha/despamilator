@@ -56,3 +56,10 @@
 * Added a heap of new spam and clean samples.
 
 * Added test string ("gtubs") that will score 100. For use in tests.
+
+=== 2.0
+
+* Removed naughty_q and funky consonant - replaced with unusual character combination filter.
+
+* Rejigged url and html tag scores.
+
