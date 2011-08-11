@@ -28,6 +28,7 @@ describe DespamilatorFilter::Shouting do
 
   [
           ['this is a lowercased string', 0],
+          ['This is a String with Capital Letters', 0],
           ['this lil string is 50 PERCENT SHOUTING', 0.25],
           ['THIS LIL STRING IS 100 PERCENT SHOUTING', 0.5]
   ].each do |string, expected_score|
