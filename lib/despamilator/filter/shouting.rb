@@ -18,7 +18,7 @@ module DespamilatorFilter
 
       return if text.length < 20
 
-      uppercased = text.scan(/[A-Z]/).length
+      uppercased = text.scan(/[A-Z][A-Z]+/).join.length
       lowercased = text.scan(/[a-z]/).length
 
       if uppercased > 0
