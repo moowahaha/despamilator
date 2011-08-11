@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{despamilator}
-  s.version = "2.0"
+  s.version = "2.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Stephen Hardisty"]
-  s.date = %q{2011-05-24}
+  s.date = %q{2011-08-11}
   s.description = %q{Despamilator is a plugin based spam detector designed for use on your web forms borne out of two annoyances:
 Spam being submitted in my web forms and CAPTCHAS being intrusive. Despamilator will apply
 some commonly used heuristics from the world of anti-spam to help you decide whether your users are human or machine.}
