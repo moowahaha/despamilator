@@ -6,6 +6,6 @@ describe DespamilatorFilter::LongWords do
   despamilator_should_apply_the_filter_for('honorificabilitudinitatibus')
 
   a_single_match_of('honorificabilitudinitatibus', should_score: 0.1)
-  a_multiple_match_of('honorificabilitudinitatibus antidisestablishmentarianism', should_score: [0.2, 2.times])
+  a_multiple_match_of('honorificabilitudinitatibus antidisestablishmentarianism', should_score: 0.2)
 
 end

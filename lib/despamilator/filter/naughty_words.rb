@@ -1,8 +1,8 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class NaughtyWords < Despamilator::FilterBase
+  class NaughtyWords < Despamilator::Filter
 
     def name
       'Naughty Words'
@@ -12,11 +12,11 @@ module DespamilatorFilter
       'Detects cheeky words'
     end
 
-    def parse text
-      text.downcase!
+    def parse subject
+      text = subject.text.downcase
 
       naughty_words.each do |word|
-        self.append_score = 0.1 if text =~ /\b#{word}s?\b/
+        subject.register_match!(score: 0.1, filter: self) if text =~ /\b#{word}s?\b/
       end
     end
 

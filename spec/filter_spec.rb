@@ -1,9 +1,7 @@
-require 'despamilator/filter_base'
-
-class UnimplementedFilter < Despamilator::FilterBase
+class UnimplementedFilter < Despamilator::Filter
 end
 
-describe Despamilator::FilterBase do
+describe Despamilator::Filter do
   describe "abstract method" do
 
     before do
@@ -11,8 +9,8 @@ describe Despamilator::FilterBase do
     end
 
     [
-            ['name', 'No name defined for UnimplementedFilter'],
-            ['description', 'No description defined for UnimplementedFilter'],
+            [:name, 'No name defined for UnimplementedFilter'],
+            [:description, 'No description defined for UnimplementedFilter'],
 
     ].each do |method, exception|
 
@@ -23,7 +21,7 @@ describe Despamilator::FilterBase do
     end
 
     it "should throw an error when the child class has not implemented a 'parse' method" do
-      -> {@filter.parse('abc')}.should raise_error('No parse defined for UnimplementedFilter')
+      -> {@filter.parse('abc')}.should raise_error('No parser defined for UnimplementedFilter')
     end
 
   end

@@ -1,8 +1,8 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class Shouting < Despamilator::FilterBase
+  class Shouting < Despamilator::Filter
 
     def name
       'Shouting'
@@ -12,9 +12,9 @@ module DespamilatorFilter
       'Detects and scores shouting (all caps)'
     end
 
-    def parse text
+    def parse subject
       # strip HTML
-      text.gsub!(/<\/?[^>]*>/, "")
+      text = subject.text.gsub(/<\/?[^>]*>/, "")
 
       return if text.length < 20
 
@@ -22,7 +22,10 @@ module DespamilatorFilter
       lowercased = text.scan(/[a-z]/).length
 
       if uppercased > 0
-        self.append_score = (uppercased.to_f / (uppercased + lowercased)) * 0.5
+        subject.register_match!(
+            score: (uppercased.to_f / (uppercased + lowercased)) * 0.5,
+            filter: self
+        )
       end
     end
 

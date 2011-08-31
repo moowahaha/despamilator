@@ -1,8 +1,8 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class TrailingNumber < Despamilator::FilterBase
+  class TrailingNumber < Despamilator::Filter
 
     def name
       'Trailing Number'
@@ -12,8 +12,8 @@ module DespamilatorFilter
       'Detects a trailing cache busting number'
     end
 
-    def parse text
-      self.append_score = 0.1 if text =~ /\b\d+\s*$/
+    def parse subject
+      subject.register_match!(score: 0.1, filter: self) if subject.text =~ /\b\d+\s*$/
     end
 
   end

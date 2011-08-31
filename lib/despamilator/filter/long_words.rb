@@ -1,8 +1,8 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class LongWords < Despamilator::FilterBase
+  class LongWords < Despamilator::Filter
 
     def name
       'Long Words'
@@ -12,9 +12,9 @@ module DespamilatorFilter
       'Detects long and unbroken strings'
     end
 
-    def parse text
-      text.split(/\W+/).each do |word|
-        self.append_score = 0.1 if word.length > 20
+    def parse subject
+      subject.text.words.each do |word|
+        subject.register_match!(score: 0.1, filter: self) if word.length > 20
       end
     end
 

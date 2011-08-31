@@ -6,22 +6,16 @@ describe DespamilatorFilter::Shouting do
   despamilator_should_apply_the_filter_for('this lil string is 50 PERCENT SHOUTING')
 
   a_single_match_of('this lil string is 50 PERCENT SHOUTING', should_score: 0.25)
-  a_multiple_match_of('HELLO THERE!! THIS IS SHOUTING!!', should_score: [0.5, 1.times])
+  a_multiple_match_of('HELLO THERE!! THIS IS SHOUTING!!', should_score: 0.5)
 
   describe "exceptions" do
 
-    before :all do
-      @filter = DespamilatorFilter::Shouting.new
-    end
-
     it "should strip out HTML" do
-      @filter.parse('<H1>this is a flipping html tag whose contents is very long</h1>')
-      @filter.score.should == 0
+      parsing('<H1>this is a flipping html tag whose contents is very long</h1>').should have_score(0)
     end
 
     it "should ignore strings less than 20 characters long" do
-      @filter.parse('ABCD EFG HIJKLM NOP')
-      @filter.score.should == 0
+      parsing('ABCD EFG HIJKLM NOP').should have_score(0)
     end
 
   end
@@ -34,10 +28,7 @@ describe DespamilatorFilter::Shouting do
   ].each do |string, expected_score|
 
     it "should score the string '#{string}' based on a percentage of uppercase words" do
-      filter = DespamilatorFilter::Shouting.new
-
-      filter.parse(string)
-      filter.score.should == expected_score
+      parsing(string).should have_score(expected_score)
     end
 
   end

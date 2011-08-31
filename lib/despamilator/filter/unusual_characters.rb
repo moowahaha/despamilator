@@ -1,8 +1,8 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class UnusualCharacters < Despamilator::FilterBase
+  class UnusualCharacters < Despamilator::Filter
 
     def name
       'Unusual Characters'
@@ -12,10 +12,10 @@ module DespamilatorFilter
       'Detects and scores each occurrence of an unusual 2 or 3 character combination'
     end
 
-    def parse text
+    def parse subject
       initialize_combos
-      tokenize(text).each do |token|
-        self.append_score = 0.05 if @@combos[token.to_sym]
+      tokenize(subject.text).each do |token|
+        subject.register_match!(score: 0.05, filter: self) if @@combos[token.to_sym]
       end
     end
 

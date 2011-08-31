@@ -1,15 +1,15 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class HtmlTags < Despamilator::FilterBase
+  class HtmlTags < Despamilator::Filter
 
-    def parse text
-      text.downcase!
+    def parse subject
+      text = subject.text.downcase
 
       html_tags.each do |tag|
         if text.match(/<\s*#{tag}\W/) || text.match(/<\n*#{tag}\W/) || text.match(/\W#{tag}\s*\//) || text.match(/\W#{tag}\n*\//)
-          self.append_score = 0.6
+          subject.register_match!(score: 0.6, filter: self)
         end
       end
     end

@@ -1,6 +1,10 @@
 $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-require 'despamilator/filter'
+Dir.glob(File.join(File.dirname(__FILE__), 'despamilator', 'filter', '*.rb')).each do |filter_file|
+  require filter_file
+end
+
+require 'despamilator/subject'
 
 #== SYNOPSIS:
 #
@@ -19,20 +23,21 @@ class Despamilator
   # Constructor. Takes the text you which to parse and score.
 
   def initialize text
-    @filters = Despamilator::Filter.new text
+    @subject = Despamilator::Subject.new text
+    run_filters @subject
   end
 
   # Returns the total score as a Float.
 
   def score
-    @filters.score
+    @subject.score
   end
 
   # Returns an array of filters that have matched and contributed to the score.
   # Each element is a a child of the Despamilator::FilterBase class.
 
-  def matched_by
-    @filters.matches
+  def matches
+    @subject.matches
   end
 
   # Generic Test for Unsolicited Bulk Submissions. Similar to SpamAssassin's GTUBE.
@@ -41,4 +46,16 @@ class Despamilator
   def self.gtubs_test_string
     '89913b8a065b7092721fe995877e097681683af9d3ab767146d5d6fd050fc0bda7ab99f4232d94a1'
   end
+
+  private
+
+  def run_filters subject
+    filter_namespace = Object.const_get('DespamilatorFilter')
+
+    filter_namespace.constants.each do |filter_class|
+      filter = filter_namespace.const_get(filter_class).new
+      filter.parse(subject)
+    end
+  end
+
 end

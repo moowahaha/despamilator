@@ -1,8 +1,8 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class URLs < Despamilator::FilterBase
+  class URLs < Despamilator::Filter
 
     def name
       'URLs'
@@ -12,13 +12,11 @@ module DespamilatorFilter
       'Detects each url in a string'
     end
 
-    def parse text
-      text.downcase!
-
-      text.gsub!(/http:\/\/\d+\.\d+\.\d+\.\d+/, '')
+    def parse subject
+      text = subject.text.downcase.gsub(/http:\/\/\d+\.\d+\.\d+\.\d+/, '')
 
       1.upto(text.scan(/http:\/\//).length) do
-        self.append_score = 0.4
+        subject.register_match!(score: 0.4, filter: self)
       end
     end
 

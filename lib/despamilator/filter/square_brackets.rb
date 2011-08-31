@@ -1,8 +1,8 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class SquareBrackets < Despamilator::FilterBase
+  class SquareBrackets < Despamilator::Filter
 
     def name
       'Square Brackets'
@@ -12,9 +12,9 @@ module DespamilatorFilter
       'Detects each square bracket in a string'
     end
 
-    def parse text
-      text.downcase.scan(/(\[|\])/).each do |match|
-        self.append_score = 0.05
+    def parse subject
+      subject.text.downcase.scan(/(\[|\])/).each do |match|
+        subject.register_match!(score: 0.05, filter: self)
       end
     end
 

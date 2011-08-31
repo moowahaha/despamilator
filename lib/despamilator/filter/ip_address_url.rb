@@ -1,8 +1,8 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class IPAddressURL < Despamilator::FilterBase
+  class IPAddressURL < Despamilator::Filter
 
     def name
       'IP Address URL'
@@ -12,8 +12,10 @@ module DespamilatorFilter
       'Detects IP address URLs'
     end
 
-    def parse text
-      self.append_score = 0.5 if text.downcase.scan(/http:\/\/\d+\.\d+\.\d+\.\d+/).length > 0
+    def parse subject
+      subject.register_match!(
+          score: 0.5, filter: self
+      ) if subject.text.downcase.scan(/http:\/\/\d+\.\d+\.\d+\.\d+/).length > 0
     end
 
   end

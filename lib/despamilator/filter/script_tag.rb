@@ -1,11 +1,11 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class ScriptTag < Despamilator::FilterBase
+  class ScriptTag < Despamilator::Filter
 
-    def parse text
-      self.append_score = 1 if text.downcase.match(/<\/?script(>|\s+|\n|\r)/)
+    def parse subject
+      subject.register_match!(score: 1, filter: self) if subject.text.downcase.match(/<\/?script(>|\s+|\n|\r)/)
     end
 
     def name

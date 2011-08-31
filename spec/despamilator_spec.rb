@@ -8,6 +8,6 @@ describe Despamilator do
   end
 
   it "should return no matching filter for fine text" do
-    @dspam.matched_by.should be_empty
+    @dspam.matches.should be_empty
   end
 end

@@ -6,6 +6,6 @@ describe DespamilatorFilter::SquareBrackets do
   despamilator_should_apply_the_filter_for('[')
 
   a_single_match_of('[', should_score: 0.05)
-  a_multiple_match_of('[]', should_score: [0.1, 2.times])
+  a_multiple_match_of('[]', should_score: 0.1)
 
 end

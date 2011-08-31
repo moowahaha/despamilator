@@ -1,36 +1,52 @@
 class Despamilator
+
+#This class is the base class of all the despamilator filters.
+#
+#== EXAMPLE:
+#
+#This example is to detect the letter "a". Put the code in
+#lib/despamilator/filter/detect_letter_a.rb:
+#
+#  require 'despamilator/filter_base'
+#
+#  module DespamilatorFilter
+#
+#    class DetectLetterA < Despamilator::FilterBase
+#
+#      def name
+#        'Detecting the letter A'
+#      end
+#
+#      def description
+#        'Detects the letter "a" in a string for no reason other than a demo'
+#      end
+#
+#      def parse text
+#        if text.downcase.scan(/a/)
+#        # add 0.1 to the score of the text
+#        self.append_score = 0.1
+#      end
+#    end
+#  end
+
   class Filter
-    attr_accessor :matches, :score
 
-    def initialize text
-      @matches ||= []
-      @score ||= 0
-      run_filters text
+    # The nice description of the filter. Usually no more than a sentence.
+
+    def description
+      raise "No description defined for #{self.class}"
     end
 
-    private
+    # This method parses some text. The score is assigned to the same instance.
 
-    def run_filters text
-      filter_namespace = Object.const_get('DespamilatorFilter')
-
-      filter_namespace.constants.each do |filter_class|
-        execute_filter(filter_namespace.const_get(filter_class).new, text)
-      end
+    def parse text
+      raise "No parser defined for #{self.class}"
     end
 
-    private
+    # The one or two word name for the filter.
 
-    def execute_filter filter, text
-      filter.parse text.dup
-
-      if filter.matched?
-        @matches.push(filter)
-        @score += filter.score
-      end
-    end
-
-    Dir.glob(File.join(File.dirname(__FILE__), 'filter', '*.rb')).each do |filter_file|
-      require filter_file
+    def name
+      raise "No name defined for #{self.class}"
     end
 
   end

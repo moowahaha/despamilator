@@ -1,17 +1,11 @@
-require 'despamilator/filter_base'
+require 'despamilator/filter'
 
 module DespamilatorFilter
 
-  class NumbersAndWords < Despamilator::FilterBase
+  class NumbersAndWords < Despamilator::Filter
 
-    def parse text
-      text.downcase!
-
-      # strip out "good numbers"
-      text.gsub!(/h[1-6]/, '')
-      text.gsub!(/(^|\b)\d+($|\b)/, '')
-      text.gsub!(/(^|\b)\d+(,|\.)\d+($|\b)/, '')
-      text.gsub!(/(^|\b)\d+(st|nd|rd|th)($|\b)/, '')
+    def parse subject
+      text = tidy_text(subject)
 
       [
               /\w\d+/,
@@ -25,7 +19,7 @@ module DespamilatorFilter
         matches.each do |to_remove|
           to_remove = to_remove.to_s
           text.sub!(to_remove, '') unless to_remove.empty?
-          self.append_score = 0.1
+          subject.register_match!(score: 0.1, filter: self)
         end
       end
     end
@@ -38,6 +32,20 @@ module DespamilatorFilter
       'Detects unusual number/word combinations'
     end
 
+    private
+
+    def tidy_text subject
+      text = subject.text.dup
+      text.downcase!
+
+      # strip out "good numbers"
+      text.gsub!(/h[1-6]/, '')
+      text.gsub!(/(^|\b)\d+($|\b)/, '')
+      text.gsub!(/(^|\b)\d+(,|\.)\d+($|\b)/, '')
+      text.gsub!(/(^|\b)\d+(st|nd|rd|th)($|\b)/, '')
+
+      text
+    end
   end
 
 end

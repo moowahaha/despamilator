@@ -5,5 +5,5 @@ describe DespamilatorFilter::UnusualCharacters do
   despamilator_should_apply_the_filter_for('sx')
 
   a_single_match_of('sx', should_score: 0.05)
-  a_multiple_match_of('sxsx', should_score: [0.1, 2.times])
+  a_multiple_match_of('sxsx', should_score: 0.1)
 end

@@ -5,5 +5,5 @@ describe DespamilatorFilter::GtubsTestFilter do
   despamilator_should_apply_the_filter_for(Despamilator.gtubs_test_string)
 
   a_single_match_of(Despamilator.gtubs_test_string, should_score: 100)
-  a_multiple_match_of(Despamilator.gtubs_test_string, should_score: [100, 1.times])
+  a_multiple_match_of(Despamilator.gtubs_test_string, should_score: 100)
 end

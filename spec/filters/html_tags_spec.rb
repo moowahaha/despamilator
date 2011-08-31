@@ -6,7 +6,7 @@ describe DespamilatorFilter::HtmlTags do
   despamilator_should_apply_the_filter_for('<xmp>')
 
   a_single_match_of('<xmp>', should_score: 0.6)
-  a_multiple_match_of('<h1></h1> <h2></h2>', should_score: [1.2, 2.times])
+  a_multiple_match_of('<h1></h1> <h2></h2>', should_score: 1.2)
 
   [
           '!--',
@@ -115,9 +115,7 @@ describe DespamilatorFilter::HtmlTags do
               "<\r#{script_tag}\r/>"
       ].each do |tag|
         it "should detect '#{tag}'" do
-          dspam = DespamilatorFilter::HtmlTags.new
-          dspam.parse(tag)
-          dspam.score.should == 0.6
+          parsing(tag).should have_score(0.6)
         end
 
       end
