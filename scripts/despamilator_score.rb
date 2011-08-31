@@ -17,9 +17,9 @@ dspam = Despamilator.new(text)
 
 puts "Total Score: #{dspam.score}\n\n"
 
-puts "Matched by..." unless dspam.matched_by.empty?
-dspam.matched_by.each do |match|
-  puts "\tFilter: #{match.name}"
-  puts "\tScore:  #{match.score}"
+puts "Matched by..." unless dspam.matches.empty?
+dspam.matches.each do |match|
+  puts "\tFilter: #{match[:filter].name}"
+  puts "\tScore:  #{match[:score]}"
   puts "\n"
 end
