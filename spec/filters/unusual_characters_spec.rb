@@ -6,4 +6,8 @@ describe DespamilatorFilter::UnusualCharacters do
 
   a_single_match_of('sx', should_score: 0.05)
   a_multiple_match_of('sxsx', should_score: 0.1)
+
+  it 'should exclude urls' do
+    parsing('blah blah http://sxsx.com de blah').should have_score(0)
+  end
 end

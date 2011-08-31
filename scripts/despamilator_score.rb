@@ -22,10 +22,21 @@ def check_file file
     puts "\tScore:  #{match[:score]}"
     puts "\n"
   end
+
+  dspam.score
 end
 
 file_or_dir = ARGV[0] || raise("Usage: despamilator_spec.rb [file or dir]")
 
+results = []
+
 Dir.glob(file_or_dir).each do |file|
-  check_file file
+  score = check_file file
+  results << [file, score]
+end
+
+puts "\n\n"
+
+results.sort {|a, b| b[1] <=> a[1]}.each do |file, score|
+  puts "#{file} | #{score}"
 end

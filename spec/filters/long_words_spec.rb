@@ -8,4 +8,7 @@ describe DespamilatorFilter::LongWords do
   a_single_match_of('honorificabilitudinitatibus', should_score: 0.1)
   a_multiple_match_of('honorificabilitudinitatibus antidisestablishmentarianism', should_score: 0.2)
 
+  it 'should ignore urls' do
+    parsing('http://honorificabilitudinitatibus.com').should have_score(0)
+  end
 end

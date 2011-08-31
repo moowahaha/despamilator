@@ -35,7 +35,7 @@ module DespamilatorFilter
     private
 
     def tidy_text subject
-      text = subject.text.dup
+      text = subject.text.without_uris
       text.downcase!
 
       # strip out "good numbers"

@@ -5,8 +5,9 @@ describe DespamilatorFilter::HtmlTags do
 
   despamilator_should_apply_the_filter_for('<xmp>')
 
-  a_single_match_of('<xmp>', should_score: 0.6)
+  a_single_match_of('<xmp></xmp>', should_score: 0.6)
   a_multiple_match_of('<h1></h1> <h2></h2>', should_score: 1.2)
+  a_multiple_match_of('<div></div> <div></div>', should_score: 1.2)
 
   [
           '!--',
@@ -102,17 +103,17 @@ describe DespamilatorFilter::HtmlTags do
           'ul',
           'var',
           'xmp'
-  ].each do |script_tag|
-    [script_tag.upcase, script_tag.downcase].each do |script_tag|
+  ].each do |html_tag|
+    [html_tag.upcase, html_tag.downcase].each do |cased_html_tag|
       [
-              "<#{script_tag}>",
-              "<#{script_tag}/>",
-              "< #{script_tag} >",
-              "<#{script_tag} />",
-              "<\n#{script_tag}\n/>",
-              "<\n#{script_tag} >",
-              "<#{script_tag}\n/>",
-              "<\r#{script_tag}\r/>"
+              "<#{cased_html_tag}>",
+              "<#{cased_html_tag}/>",
+              "< #{cased_html_tag} >",
+              "<#{cased_html_tag} />",
+              "<\n#{cased_html_tag}\n/>",
+              "<\n#{cased_html_tag} >",
+              "<#{cased_html_tag}\n/>",
+              "<\r#{cased_html_tag}\r/>"
       ].each do |tag|
         it "should detect '#{tag}'" do
           parsing(tag).should have_score(0.6)
