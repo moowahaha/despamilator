@@ -13,7 +13,7 @@ module DespamilatorFilter
     end
 
     def parse subject
-      subject.register_match!(score: 100, filter: self) if subject.text == Despamilator.gtubs_test_string
+      subject.register_match!({:score => 100, :filter => self}) if subject.text == Despamilator.gtubs_test_string
     end
 
   end

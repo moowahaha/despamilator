@@ -22,10 +22,10 @@ module DespamilatorFilter
       lowercased = text.scan(/[a-z]/).length
 
       if uppercased > 0
-        subject.register_match!(
-            score: (uppercased.to_f / (uppercased + lowercased)) * 0.5,
-            filter: self
-        )
+        subject.register_match!({
+            :score => (uppercased.to_f / (uppercased + lowercased)) * 0.5,
+            :filter => self
+        })
       end
     end
 

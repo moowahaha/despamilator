@@ -14,7 +14,7 @@ module DespamilatorFilter
 
     def parse subject
       subject.text.downcase.scan(/(\[|\])/).each do |match|
-        subject.register_match!(score: 0.05, filter: self)
+        subject.register_match!({:score => 0.05, :filter => self})
       end
     end
 

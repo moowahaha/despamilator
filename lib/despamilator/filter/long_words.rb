@@ -14,7 +14,9 @@ module DespamilatorFilter
 
     def parse subject
       subject.text.words.each do |word|
-        subject.register_match!(score: 0.1, filter: self) if word.length > 20
+        subject.register_match!({
+          :score => 0.1, :filter => self
+        }) if word.length > 20
       end
     end
 

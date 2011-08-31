@@ -15,7 +15,7 @@ module DespamilatorFilter
     def parse subject
       initialize_combos
       tokenize(subject.text).each do |token|
-        subject.register_match!(score: 0.05, filter: self) if @@combos[token.to_sym]
+        subject.register_match!({:score => 0.05, :filter => self}) if @@combos[token.to_sym]
       end
     end
 

@@ -16,7 +16,7 @@ module DespamilatorFilter
       text = subject.text.downcase.gsub(/http:\/\/\d+\.\d+\.\d+\.\d+/, '')
 
       1.upto(text.scan(/http:\/\//).length) do
-        subject.register_match!(score: 0.4, filter: self)
+        subject.register_match!({:score => 0.4, :filter => self})
       end
     end
 

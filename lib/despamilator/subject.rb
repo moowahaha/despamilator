@@ -20,7 +20,7 @@ class Despamilator
 
     def matches
       @matches.map do |filter, score|
-        {filter: filter, score: score}
+        {:filter => filter, :score => score}
       end.sort do |a, b|
         b[:score] <=> a[:score]
       end

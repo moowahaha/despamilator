@@ -16,7 +16,7 @@ module DespamilatorFilter
       text = subject.text.downcase
 
       naughty_words.each do |word|
-        subject.register_match!(score: 0.1, filter: self) if text =~ /\b#{word}s?\b/
+        subject.register_match!({:score => 0.1, :filter => self}) if text =~ /\b#{word}s?\b/
       end
     end
 

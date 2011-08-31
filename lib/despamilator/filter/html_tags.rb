@@ -9,7 +9,7 @@ module DespamilatorFilter
 
       html_tags.each do |tag|
         if text.match(/<\s*#{tag}\W/) || text.match(/<\n*#{tag}\W/) || text.match(/\W#{tag}\s*\//) || text.match(/\W#{tag}\n*\//)
-          subject.register_match!(score: 0.6, filter: self)
+          subject.register_match!({:score => 0.6, :filter => self})
         end
       end
     end

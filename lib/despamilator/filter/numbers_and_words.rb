@@ -19,7 +19,7 @@ module DespamilatorFilter
         matches.each do |to_remove|
           to_remove = to_remove.to_s
           text.sub!(to_remove, '') unless to_remove.empty?
-          subject.register_match!(score: 0.1, filter: self)
+          subject.register_match!({:score => 0.1, :filter => self})
         end
       end
     end
