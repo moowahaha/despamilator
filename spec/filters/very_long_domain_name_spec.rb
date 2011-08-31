@@ -4,6 +4,10 @@ describe DespamilatorFilter::VeryLongDomainName do
 
   despamilator_should_apply_the_filter_for('http://cje6CgslLk0ds3Nnto7dj.com')
 
-  a_single_match_of('blah http://cje6CgslLk0ds3Nnto7dj.com blah', should_score: 0.4)
+  a_single_match_of('blah http://cje6CgslLk-0ds3Nnto7dj.com blah', should_score: 0.4)
   a_multiple_match_of('blah http://cje6CgslLk0ds3Nnto7dj.com?x=jkhkh345kjhkhkj43h5jhjh45 blah http://cje6CgslLk0ds3Nnto7dj.com', should_score: 0.8)
+
+  it 'should ignore subdomains' do
+    parsing('http://www.gretchenmist.blogspot.com').should have_score(0)
+  end
 end

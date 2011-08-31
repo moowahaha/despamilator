@@ -7,4 +7,8 @@ describe DespamilatorFilter::TrailingNumber do
 
   a_single_match_of('hello 123', should_score: 0.1)
 
+  it 'should ignore URLs' do
+    parsing('http://www.blah.com?x=2').should have_score(0)
+  end
+
 end

@@ -61,7 +61,7 @@ def despamilator_should_apply_the_filter_for string
     it 'should be applied during filtering' do
       filter_name = described_class.new.name
       despamilator = Despamilator.new(string)
-      despamilator.matches.collect { |f| f[:filter].name == filter_name }.should_not be_empty
+      despamilator.matches.reject { |f| f[:filter].name != filter_name }.compact.should_not be_empty
     end
 
 end
