@@ -33,7 +33,11 @@ class Despamilator
     @subject.score
   end
 
-  # Returns an array of filters that have matched and contributed to the score.
+  def matched_by
+    raise "This method is dead. Please use 'matches'. The return value is a bit different too..."
+  end
+
+  # Returns an array of scores and filters that have matched and contributed to the score.
   # Each element is a a child of the Despamilator::FilterBase class.
 
   def matches

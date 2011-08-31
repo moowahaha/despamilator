@@ -63,3 +63,10 @@
 
 * Rejigged url and html tag scores.
 
+=== 2.0.1
+
+* Minor bug fix in shouting filter.
+
+=== IN PROGRESS
+
+* Removed the "matched_by" method. Replaced by "matches".
