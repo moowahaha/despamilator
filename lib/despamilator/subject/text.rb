@@ -10,11 +10,21 @@ class Despamilator
       end
 
       def without_uris
-        self.gsub(URI.regexp(['http', 'https', 'mailto', 'ftp']), '')
+        gsub(URI.regexp(['http', 'https', 'mailto', 'ftp']), '')
       end
 
       def words
-        self.split(/\W+/)
+        split(/\W+/)
+      end
+
+      def count pattern
+        scan(pattern).flatten.compact.length
+      end
+
+      def remove_and_count! pattern
+        count = count(pattern)
+        gsub!(pattern, '')
+        count
       end
 
     end

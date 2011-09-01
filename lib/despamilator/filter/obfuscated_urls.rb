@@ -21,7 +21,7 @@ module DespamilatorFilter
     private
 
     def find_space_separated_parts text
-      text.scan(/www\s+\w+\s+com/).length
+      text.count(/www\s+\w+\s+com/)
     end
 
     def find_space_separated_characters text

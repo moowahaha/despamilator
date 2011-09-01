@@ -14,7 +14,7 @@ module DespamilatorFilter
 
     def parse subject
       text = subject.text.downcase.gsub(/http:\/\/\d+\.\d+\.\d+\.\d+/, '')
-      matches = text.scan(/http:\/\//).length
+      matches = text.count(/https?:\/\//)
       1.upto(matches > 2 ? 2 : matches) do
         subject.register_match!({:score => 0.4, :filter => self})
       end

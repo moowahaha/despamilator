@@ -10,7 +10,7 @@ module DespamilatorFilter
     end
 
     def parse subject
-      price_count = subject.text.scan(/\$\s*\d+/).length
+      price_count = subject.text.count(/\$\s*\d+/)
       subject.register_match!({:score => 0.075 * price_count, :filter => self}) if price_count > 0
     end
 

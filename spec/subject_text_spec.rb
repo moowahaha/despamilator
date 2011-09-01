@@ -20,4 +20,16 @@ describe Despamilator::Subject::Text do
     ).words.should == %w{hello there you rule}
   end
 
+  it 'should count the matches for a regular expression' do
+    Despamilator::Subject::Text.new(
+        'yXyXy'
+    ).count(/X/).should == 2
+  end
+
+  it 'should count the matches for a regular expression' do
+    text = Despamilator::Subject::Text.new('yXyXy').dup
+    text.remove_count!(/X/).should == 2
+    text.should == 'yyy'
+  end
+
 end
