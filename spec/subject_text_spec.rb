@@ -10,8 +10,8 @@ describe Despamilator::Subject::Text do
 
   it 'should strip urls' do
     Despamilator::Subject::Text.new(
-        'blah https://www.google.com de http://yahoo.com blah http://www.dcyder.com blah'
-    ).without_uris.should == 'blah  de  blah  blah'
+        'blah https://www.google.com de.http://yahoo.com blah http://www.dcyder.com?x={abc} blah'
+    ).without_uris.should == 'blah de.blah blah'
   end
 
   it 'should split into words' do
@@ -28,7 +28,7 @@ describe Despamilator::Subject::Text do
 
   it 'should count the matches for a regular expression' do
     text = Despamilator::Subject::Text.new('yXyXy').dup
-    text.remove_count!(/X/).should == 2
+    text.remove_and_count!(/X/).should == 2
     text.should == 'yyy'
   end
 

@@ -10,7 +10,7 @@ class Despamilator
       end
 
       def without_uris
-        gsub(URI.regexp(['http', 'https', 'mailto', 'ftp']), '')
+        gsub(/\b(?:https?|mailto|ftp):.+?(\s|$)/i, '')
       end
 
       def words
