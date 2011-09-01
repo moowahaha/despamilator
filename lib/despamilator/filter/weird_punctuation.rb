@@ -15,10 +15,13 @@ module DespamilatorFilter
     def parse subject
       text = subject.text.without_uris.downcase
 
-      text.gsub!(/\w&\w/, '')
-      text.gsub!(/[a-z](!|\?)(\s|$)/, '')
+      text.gsub!(/\w&\w/, 'xx')
+      text.gsub!(/[a-z](!|\?)(\s|$)/, 'x')
       text.gsub!(/(?:#{punctuation}){20,}/, '')
       matches = text.remove_and_count!(/(?:\W|\s|^)(#{punctuation})/)
+      matches += text.remove_and_count!(/\w,\w/)
+      matches += text.remove_and_count!(/\w\w\.\w/)
+      matches += text.remove_and_count!(/\w\.\w\w/)
       matches += text.remove_and_count!(/(#{punctuation})(#{punctuation})/)
       matches += text.remove_and_count!(/(#{punctuation})$/)
       matches += text.remove_and_count!(/(?:\W|\s|^)\d+(#{punctuation})/)

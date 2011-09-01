@@ -8,8 +8,16 @@ describe DespamilatorFilter::WeirdPunctuation do
   a_single_match_of('&gt', should_score: 0.02)
   a_multiple_match_of('%D :-D &gt;:-[ 123, l 89.', should_score: 0.1)
 
+  it 'should score dots and commas mid word' do
+    parsing('aa.bb a,e').should have_score(0.04)
+  end
+
   it 'should ignore weird punctuation in urls' do
     parsing('http://www.blah.com?x=1&y=z').should have_score(0)
+  end
+
+  it 'should ignore initials' do
+    parsing('a.b.c').should have_score(0)
   end
 
   it 'should ignore ampersands surrounded by letters' do
