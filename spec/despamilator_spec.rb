@@ -1,17 +1,36 @@
 describe Despamilator do
-  before :each do
-    @dspam = Despamilator.new('this text is absolutely fine')
+
+  before do
+    @dspam = Despamilator.new(Despamilator.gtubs_test_string)
   end
 
   it 'should return a zero score for fine text' do
-    @dspam.score.should == 0
+    @dspam.score.should >= 100.0
   end
 
   it 'should return no matching filter for fine text' do
-    @dspam.matches.should be_empty
+    @dspam.matches.collect { |f| f.class == DespamilatorFilter::GtubsTestFilter }.should_not be_empty
   end
 
-  it 'should raise and exception when we call a dead method' do
-    -> {@dspam.matched_by}.should raise_error
+  context :matched_by do
+    
+    before do
+      @dspam.should_receive(:warn).with(/matched_by is deprecated/)
+      @gtubs = @dspam.matched_by { |f| f.class == DespamilatorFilter::GtubsTestFilter }.collect.first
+    end
+
+    it 'should yield a name' do
+      @gtubs.name.should == DespamilatorFilter::GtubsTestFilter.new.name
+    end
+
+    it 'should yield a description' do
+      @gtubs.description.should == DespamilatorFilter::GtubsTestFilter.new.description
+    end
+
+    it 'should yield a score' do
+      @gtubs.score.should == 100.0
+    end
+
   end
+
 end

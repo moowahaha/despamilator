@@ -8,7 +8,7 @@ slots = {};
   slots[i] = true
 end
 
-dir = './spec/clean_corpus/'
+dir = './spec/spam_corpus/'
 
 Dir[dir + '*.gz'].each do |file|
   slots.delete(file.scan(/\d+/).first.to_i)

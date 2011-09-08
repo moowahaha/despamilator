@@ -5,11 +5,11 @@ describe DespamilatorFilter::WeirdPunctuation do
 
   despamilator_should_apply_the_filter_for('^this^')
 
-  a_single_match_of('&gt', should_score: 0.02)
-  a_multiple_match_of('%D :-D &gt;:-[ 123, l 89.', should_score: 0.1)
+  a_single_match_of('&gt', should_score: 0.03)
+  a_multiple_match_of('%D :-D &gt;:-[ 123, l 89.', should_score: 0.15)
 
   it 'should score dots and commas mid word' do
-    parsing('aa.bb a,e').should have_score(0.04)
+    parsing('aa.bb a,e').should have_score(0.06)
   end
 
   it 'should ignore weird punctuation in urls' do
@@ -41,6 +41,6 @@ describe DespamilatorFilter::WeirdPunctuation do
 omg i love this stuff
 -+-+-+-+-+-+-+-
 some loser
-            }).should have_score(0.16)
+            }).should have_score(0.24)
   end
 end

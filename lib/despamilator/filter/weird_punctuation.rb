@@ -26,7 +26,7 @@ module DespamilatorFilter
       matches += text.remove_and_count!(/(#{punctuation})$/)
       matches += text.remove_and_count!(/(?:\W|\s|^)\d+(#{punctuation})/)
 
-      subject.register_match!({:score => 0.02 * matches, :filter => self}) if matches > 0
+      subject.register_match!({:score => 0.03 * matches, :filter => self}) if matches > 0
     end
 
     private

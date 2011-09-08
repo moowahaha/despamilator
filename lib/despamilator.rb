@@ -5,6 +5,7 @@ Dir.glob(File.join(File.dirname(__FILE__), 'despamilator', 'filter', '*.rb')).ea
 end
 
 require 'despamilator/subject'
+require 'ostruct'
 
 #== SYNOPSIS:
 #
@@ -18,7 +19,8 @@ require 'despamilator/subject'
 #  dspam.matched_by #=> array of matching filters
 
 class Despamilator
-  VERSION = "2.0.1"
+
+  VERSION = '2.1'
 
   # Constructor. Takes the text you which to parse and score.
 
@@ -34,7 +36,17 @@ class Despamilator
   end
 
   def matched_by
-    raise "This method is dead. Please use 'matches'. The return value is a bit different too..."
+    warn 'Despamilator.matched_by is deprecated, please use Despamilator.matches by 2011-12-31.'
+
+    matches.map do |match|
+      filter = match[:filter]
+
+      OpenStruct.new(
+          :name => filter.name,
+          :description => filter.description,
+          :score => match[:score]
+      )
+    end
   end
 
   # Returns an array of scores and filters that have matched and contributed to the score.
