@@ -15,12 +15,10 @@ require 'ostruct'
 #
 #  dspam = Despamilator.new('some text with an <h2> tag qthhg')
 #
-#  dspam.score #=> the total score for this string (1 is normally my threshold)
-#  dspam.matched_by #=> array of matching filters
+#  dspam.score #=> the total score for this string (1 is normally my threshold).
+#  dspam.matches #=> array of hashes containing matching filters and their score.
 
 class Despamilator
-
-  VERSION = '2.1'
 
   # Constructor. Takes the text you which to parse and score.
 
