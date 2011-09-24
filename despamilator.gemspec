@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.summary     = %q{Stop web form Spam!}
   s.description = %q{Despamilator is a plugin based spam detector designed for use on your web forms borne out of two annoyances: Spam being submitted in my web forms and CAPTCHAS being intrusive. Despamilator will apply some commonly used heuristics from the world of anti-spam to help you decide whether your users are human or machine.}
 
-  s.required_rubygems_version = '>= 1.3.6'
+  s.required_rubygems_version = '>= 1.3.5'
   s.rubyforge_project         = 'despamilator'
 
   s.add_dependency 'domainatrix'

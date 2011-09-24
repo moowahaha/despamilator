@@ -81,3 +81,7 @@
 * Deprecated the "matched_by" method. Replaced by "matches".
 
 * Internal refactor to make filters stateless.
+
+=== 2.1.1 2011-09-24
+
+* Fixed syntax error fo Ruby 1.8.

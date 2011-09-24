@@ -15,7 +15,7 @@ module DespamilatorFilter
       count += find_space_separated_characters text
 
       # weird maths below is due to some issue with ruby 1.9.2 multiplying floats by 3 (?!)
-      subject.register_match!({score: (4.0 * count) / 10, filter: self}) if count > 0
+      subject.register_match!({:score => (4.0 * count) / 10, :filter => self}) if count > 0
     end
 
     private
