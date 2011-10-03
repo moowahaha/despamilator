@@ -19,6 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'domainatrix'
 
-  s.files        = Dir.glob('{bin,lib}/**/*') + %w(README.rdoc History.txt)
+  s.files        = Dir.glob('{conf,bin,lib}/**/*') + %w(README.rdoc History.txt)
   s.require_path = 'lib'
 end
