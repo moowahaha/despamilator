@@ -85,3 +85,7 @@
 === 2.1.1 2011-09-24
 
 * Fixed syntax error fo Ruby 1.8.
+
+=== 2.1.3 2011-11-29
+
+* Added fuelxl's filter for detecting vowel-less text.
