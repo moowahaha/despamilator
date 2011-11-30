@@ -15,7 +15,7 @@ module DespamilatorFilter
     end
 
     def parse(subject)
-      words = subject.text.split(/ /).select{|str| str.match(NO_VOWELS_REGEX)}
+      words = subject.text.split(/\s+/).select{|str| str.match(NO_VOWELS_REGEX)}
       unless words.empty?
         subject.register_match!({:score => ((words.length ** 2).to_f / 100) , :filter => self})
       end
