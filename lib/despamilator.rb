@@ -1,5 +1,5 @@
 $:.unshift(File.dirname(__FILE__)) unless $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
-
+require 'despamilator/filter'
 Dir.glob(File.join(File.dirname(__FILE__), 'despamilator', 'filter', '*.rb')).each do |filter_file|
   require filter_file
 end
