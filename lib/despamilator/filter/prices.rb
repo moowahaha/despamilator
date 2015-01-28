@@ -1,6 +1,8 @@
 module DespamilatorFilter
 
   class Prices < Despamilator::Filter
+    SCORE = 0.0 # Original was 0.075
+
     def name
       'Prices'
     end
@@ -11,7 +13,7 @@ module DespamilatorFilter
 
     def parse subject
       price_count = subject.text.count(/\$\s*\d+/)
-      subject.register_match!({:score => 0.075 * price_count, :filter => self}) if price_count > 0
+      subject.register_match!({:score => SCORE * price_count, :filter => self}) if price_count > 0
     end
 
   end
