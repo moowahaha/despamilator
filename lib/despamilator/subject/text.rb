@@ -5,7 +5,7 @@ class Despamilator
     class Text < String
 
       def initialize text
-        super text
+        super text if text
         freeze
       end
 
