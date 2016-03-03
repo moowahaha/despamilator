@@ -1,1 +1,1 @@
-rvm --create use 1.9.3@despamilator
+rvm --create use 2.3.0@despamilator

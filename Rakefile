@@ -13,12 +13,8 @@ Hoe.plugin :newgem
 $hoe = Hoe.spec 'despamilator' do
   self.developer 'Stephen Hardisty', 'moowahaha@hotmail.com'
   self.post_install_message = 'PostInstall.txt'
-  self.rubyforge_name = self.name # TODO this is default value
-                                  # self.extra_deps         = [['activesupport','>= 2.0.2']]
-
 end
 
-require 'newgem/tasks'
 Dir['tasks/**/*.rake'].each { |t| load t }
 
 desc "Run all unit and corpus tests"
