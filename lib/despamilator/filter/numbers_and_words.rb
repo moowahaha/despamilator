@@ -16,10 +16,11 @@ module DespamilatorFilter
 
         next if matches.empty?
 
+        # Score per match used to be 0.1 - changed to 0 as we're not sure how relevant this is
         matches.each do |to_remove|
           to_remove = to_remove.to_s
           text.sub!(to_remove, '') unless to_remove.empty?
-          subject.register_match!({:score => 0.1, :filter => self})
+          subject.register_match!({:score => 0, :filter => self})
         end
       end
     end
