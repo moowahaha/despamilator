@@ -8,12 +8,14 @@ GEM
       addressable
     hoe (3.14.2)
       rake (>= 0.8, < 11.0)
-    json (1.8.3)
+    json (1.8.6)
     one_hundred_percent_coverage (0.0.2)
       simplecov (>= 0.3.7)
+    psych (5.1.2)
+      stringio
     rake (10.5.0)
-    rdoc (4.2.2)
-      json (~> 1.4)
+    rdoc (6.6.3.1)
+      psych (>= 4.0.0)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -32,6 +34,7 @@ GEM
       json (~> 1.8)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.0)
+    stringio (3.1.0)
 
 PLATFORMS
   ruby
@@ -40,9 +43,9 @@ DEPENDENCIES
   domainatrix
   hoe
   one_hundred_percent_coverage
-  rdoc
+  rdoc (>= 6.3.4.1)
   rspec
   simplecov
 
 BUNDLED WITH
-   1.11.2
+   1.17.3
