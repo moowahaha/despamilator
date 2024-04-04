@@ -2,7 +2,7 @@
 source "http://rubygems.org"
 
 gem 'hoe'
-gem 'rdoc'
+gem 'rdoc', '>= 6.3.4.1'
 gem 'domainatrix'
 
 group :test do
