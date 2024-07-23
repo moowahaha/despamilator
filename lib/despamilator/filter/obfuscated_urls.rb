@@ -10,7 +10,7 @@ module DespamilatorFilter
     end
 
     def parse subject
-      text = subject.text.without_uris.downcase
+      text = Despamilator::Text.without_uris(subject.text.downcase)
       count = find_space_separated_parts text
       count += find_space_separated_characters text
 
@@ -21,7 +21,7 @@ module DespamilatorFilter
     private
 
     def find_space_separated_parts text
-      text.count(/www\s+\w+\s+com/)
+      Despamilator::Text.count(text, /www\s+\w+\s+com/)
     end
 
     def find_space_separated_characters text

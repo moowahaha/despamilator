@@ -11,6 +11,7 @@ Hoe.plugin :newgem
 # Generate all the Rake tasks
 # Run 'rake -T' to see list of generated tasks (from gem root directory)
 $hoe = Hoe.spec 'despamilator' do
+  self.version = Despamilator::VERSION
   self.developer 'Stephen Hardisty', 'moowahaha@hotmail.com'
   self.post_install_message = 'PostInstall.txt'
 end

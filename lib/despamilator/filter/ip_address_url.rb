@@ -15,7 +15,7 @@ module DespamilatorFilter
     def parse subject
       subject.register_match!({
           :score => 0.5, :filter => self
-      }) if subject.text.downcase.count(/http:\/\/\d+\.\d+\.\d+\.\d+/) > 0
+      }) if Despamilator::Text.count(subject.text.downcase, /http:\/\/\d+\.\d+\.\d+\.\d+/) > 0
     end
 
   end

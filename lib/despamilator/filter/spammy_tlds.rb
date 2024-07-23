@@ -13,7 +13,7 @@ module DespamilatorFilter
     end
 
     def parse subject
-      matches = subject.text.count(/\w{5,}\.(info|biz|xxx)\b/)
+      matches = Despamilator::Text.count(subject.text, /\w{5,}\.(info|biz|xxx)\b/)
       subject.register_match!({:score => 0.05 * matches, :filter => self}) if matches > 0
     end
 

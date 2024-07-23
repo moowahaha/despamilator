@@ -1,6 +1,6 @@
 = Despamilator
 
-* http://github.com/moowahaha/despamilator
+* home :: http://github.com/moowahaha/despamilator
 
 == DESCRIPTION:
 

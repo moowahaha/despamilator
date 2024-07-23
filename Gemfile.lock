@@ -1,37 +1,42 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    addressable (2.4.0)
-    diff-lcs (1.2.5)
-    docile (1.1.5)
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
+    diff-lcs (1.5.1)
+    docile (1.4.0)
     domainatrix (0.0.11)
       addressable
-    hoe (3.14.2)
-      rake (>= 0.8, < 11.0)
-    json (1.8.3)
+    hoe (4.2.2)
+      rake (>= 0.8, < 15.0)
     one_hundred_percent_coverage (0.0.2)
       simplecov (>= 0.3.7)
-    rake (10.5.0)
-    rdoc (4.2.2)
-      json (~> 1.4)
-    rspec (3.4.0)
-      rspec-core (~> 3.4.0)
-      rspec-expectations (~> 3.4.0)
-      rspec-mocks (~> 3.4.0)
-    rspec-core (3.4.3)
-      rspec-support (~> 3.4.0)
-    rspec-expectations (3.4.0)
+    psych (5.1.2)
+      stringio
+    public_suffix (6.0.1)
+    rake (13.2.1)
+    rdoc (6.7.0)
+      psych (>= 4.0.0)
+    rspec (3.13.0)
+      rspec-core (~> 3.13.0)
+      rspec-expectations (~> 3.13.0)
+      rspec-mocks (~> 3.13.0)
+    rspec-core (3.13.0)
+      rspec-support (~> 3.13.0)
+    rspec-expectations (3.13.1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-mocks (3.4.1)
+      rspec-support (~> 3.13.0)
+    rspec-mocks (3.13.1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.4.0)
-    rspec-support (3.4.1)
-    simplecov (0.11.2)
-      docile (~> 1.1.0)
-      json (~> 1.8)
-      simplecov-html (~> 0.10.0)
-    simplecov-html (0.10.0)
+      rspec-support (~> 3.13.0)
+    rspec-support (3.13.1)
+    simplecov (0.22.0)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
+    stringio (3.1.1)
 
 PLATFORMS
   ruby
@@ -45,4 +50,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   1.11.2
+   2.5.10

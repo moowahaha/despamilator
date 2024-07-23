@@ -1,3 +1,5 @@
+require "helpers/spec_helper"
+
 describe Despamilator do
 
   before do
@@ -15,7 +17,7 @@ describe Despamilator do
   context :matched_by do
     
     before do
-      @dspam.should_receive(:warn).with(/matched_by is deprecated/)
+      expect(@dspam).to receive(:warn).with(/matched_by is deprecated/)
       @gtubs = @dspam.matched_by { |f| f.class == DespamilatorFilter::GtubsTestFilter }.collect.first
     end
 

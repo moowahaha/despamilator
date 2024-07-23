@@ -13,7 +13,10 @@ module DespamilatorFilter
     end
 
     def parse subject
-      subject.text.without_uris.words.each do |word|
+      without_uris = Despamilator::Text.without_uris(subject.text)
+      words = Despamilator::Text.words(without_uris)
+
+      words.each do |word|
         subject.register_match!({
           :score => 0.1, :filter => self
         }) if word.length > 20

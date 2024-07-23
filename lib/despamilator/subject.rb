@@ -1,5 +1,3 @@
-require 'despamilator/subject/text'
-
 class Despamilator
   class Subject
     attr_reader :score, :text
@@ -7,7 +5,7 @@ class Despamilator
     def initialize text
       @score = 0.0
       @matches = {}
-      @text = Despamilator::Subject::Text.new(text)
+      @text = text
     end
 
     def register_match! details

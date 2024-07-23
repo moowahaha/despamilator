@@ -19,7 +19,7 @@ module DespamilatorFilter
       return if text.length < 20
 
       uppercased = text.scan(/[A-Z][A-Z]+/).join.length
-      lowercased = text.count(/[a-z]/)
+      lowercased = Despamilator::Text.count(text, /[a-z]/)
 
       if uppercased > 0
         subject.register_match!({

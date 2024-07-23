@@ -13,7 +13,7 @@ module DespamilatorFilter
     end
 
     def parse subject
-      subject.register_match!({:score => 0.1, :filter => self}) if subject.text.without_uris =~ /\b\d+\s*$/
+      subject.register_match!({:score => 0.1, :filter => self}) if Despamilator::Text.without_uris(subject.text) =~ /\b\d+\s*$/
     end
 
   end

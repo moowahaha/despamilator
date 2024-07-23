@@ -6,8 +6,8 @@ module DespamilatorFilter
       text = subject.text.downcase
 
       html_tags.each do |tag|
-        opening_elements = text.count(/<\s*#{tag}\W/)
-        closing_elements = text.count(/\W#{tag}\s*\/>/)
+        opening_elements = Despamilator::Text.count(text, /<\s*#{tag}\W/)
+        closing_elements = Despamilator::Text.count(text, /\W#{tag}\s*\/>/)
 
         if opening_elements > 0 or closing_elements > 0
           safest_element_count = opening_elements > closing_elements ? opening_elements : closing_elements
