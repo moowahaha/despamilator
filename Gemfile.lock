@@ -6,12 +6,12 @@ GEM
     docile (1.1.5)
     domainatrix (0.0.11)
       addressable
-    hoe (3.14.2)
-      rake (>= 0.8, < 11.0)
+    hoe (4.2.3)
+      rake (>= 0.8, < 15.0)
     json (1.8.3)
     one_hundred_percent_coverage (0.0.2)
       simplecov (>= 0.3.7)
-    rake (10.5.0)
+    rake (13.3.0)
     rdoc (4.2.2)
       json (~> 1.4)
     rspec (3.4.0)
@@ -38,11 +38,11 @@ PLATFORMS
 
 DEPENDENCIES
   domainatrix
-  hoe
+  hoe (>= 3.16.0)
   one_hundred_percent_coverage
   rdoc
   rspec
   simplecov
 
 BUNDLED WITH
-   1.11.2
+   1.17.3
