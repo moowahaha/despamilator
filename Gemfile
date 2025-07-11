@@ -1,7 +1,7 @@
 # A sample Gemfile
 source "http://rubygems.org"
 
-gem 'hoe'
+gem 'hoe', '>= 3.16.0'
 gem 'rdoc'
 gem 'domainatrix'
 
